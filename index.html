@@ -799,8 +799,16 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 1rem;
-                flex-wrap: wrap;
+                padding: 0.8rem 1.5rem;
+                height: 70px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .logo i {
+                font-size: 1.5rem;
             }
             
             .nav-links {
@@ -808,18 +816,41 @@
             }
             
             .search-container {
-                order: 3;
-                width: 100%;
-                margin-top: 1rem;
-                justify-content: center;
+                gap: 0.5rem;
             }
             
             .search-box {
-                width: 100%;
+                width: 180px;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
             }
             
             .search-box:focus {
-                width: 100%;
+                width: 200px;
+            }
+            
+            .search-btn {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+            }
+            
+            .profile-icon {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                font-size: 1rem;
+            }
+            
+            .filter-container {
+                top: 70px;
+                padding: 1rem 1.5rem;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                height: calc(100vh - 70px);
+                padding: 0 1.5rem;
             }
             
             .hero-title {
@@ -844,6 +875,70 @@
         }
 
         @media (max-width: 480px) {
+            .header {
+                padding: 0.6rem 1rem;
+                height: 60px;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .logo i {
+                font-size: 1.1rem;
+            }
+            
+            .search-container {
+                gap: 0.4rem;
+            }
+            
+            .search-box {
+                width: 140px;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .search-box:focus {
+                width: 160px;
+            }
+            
+            .search-btn {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+            }
+            
+            .profile-icon {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 0.9rem;
+            }
+            
+            .filter-container {
+                top: 60px;
+                padding: 0.8rem 1rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                margin-top: 60px;
+                height: calc(100vh - 60px);
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
             .movies-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
@@ -860,6 +955,8 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
             }
         }
     </style>
