@@ -6,6 +6,12 @@
     <title>My Cinema | Movie & Series Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <!-- تحسينات السرعة -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+    
     <style>
         /* ===== CSS VARIABLES ===== */
         :root {
@@ -25,6 +31,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         html {
@@ -39,6 +47,12 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            opacity: 0;
+            animation: bodyFadeIn 0.5s ease forwards;
+        }
+
+        @keyframes bodyFadeIn {
+            to { opacity: 1; }
         }
 
         /* ===== HEADER ===== */
@@ -408,13 +422,50 @@
             width: 100%;
             height: 350px;
             overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .movie-poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.05) 50%, 
+                transparent 100%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            z-index: 1;
+        }
+
+        @keyframes loading {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .movie-poster.loaded::before {
+            display: none;
         }
 
         .movie-poster img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .movie-poster img.loaded {
+            opacity: 1;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .movie-card:hover .movie-poster img {
@@ -1157,6 +1208,18 @@
 
     <!-- JavaScript -->
     <script>
+        // ===== OPTIMIZE IMAGE URLS =====
+        function optimizeImageUrl(url) {
+            if (url.includes('github.com') || url.includes('raw.githubusercontent.com')) {
+                // Convert to jsDelivr CDN for faster loading
+                return url.replace('raw.githubusercontent.com', 'cdn.jsdelivr.net/gh')
+                          .replace('/blob/', '/')
+                          .replace('/main/', '@main/')
+                          .replace('/master/', '@master/');
+            }
+            return url;
+        }
+
         // ===== COMPLETE MOVIE LIBRARY WITH LOCAL IMAGES =====
         const movieLibrary = {
             // Currently Watching (4 titles) - Sorted by year (newest first)
@@ -1170,7 +1233,7 @@
                     duration: "6 Seasons",
                     genres: ["Drama", "Sci-Fi", "Thriller"],
                     description: "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations meet its darkest instincts.",
-                    image: "mov/Black%20Mirror.jpg",
+                    image: optimizeImageUrl("mov/Black%20Mirror.jpg"),
                     director: "Charlie Brooker",
                     status: "Watching 👀 Season 6"
                 },
@@ -1183,7 +1246,7 @@
                     duration: "3 Seasons",
                     genres: ["Action", "Crime", "Drama"],
                     description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.",
-                    image: "mov/daredevil.jpg",
+                    image: optimizeImageUrl("mov/daredevil.jpg"),
                     director: "Drew Goddard",
                     status: "Watching 👀 Season 3"
                 },
@@ -1196,7 +1259,7 @@
                     duration: "5 Seasons",
                     genres: ["Action", "Crime", "Drama", "Thriller"],
                     description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
-                    image: "mov/prison%20break.jpg",
+                    image: optimizeImageUrl("mov/prison%20break.jpg"),
                     director: "Paul Scheuring",
                     status: "Watching 👀 Season 3"
                 },
@@ -1209,7 +1272,7 @@
                     duration: "2h 28m",
                     genres: ["Action", "Sci-Fi", "Thriller"],
                     description: "A thief who steals corporate secrets through dream-sharing technology is given the task of planting an idea into the mind of a C.E.O.",
-                    image: "mov/inception.jpg",
+                    image: optimizeImageUrl("mov/inception.jpg"),
                     director: "Christopher Nolan",
                     status: "Watching 👀"
                 }
@@ -1226,7 +1289,7 @@
                     duration: "3h 00m",
                     genres: ["Biography", "Drama", "History"],
                     description: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
-                    image: "mov/Oppenheimer.jpg",
+                    image: optimizeImageUrl("mov/Oppenheimer.jpg"),
                     director: "Christopher Nolan",
                     status: "New Release"
                 },
@@ -1239,7 +1302,7 @@
                     duration: "2h 15m",
                     genres: ["Action", "Adventure", "Fantasy"],
                     description: "Jake Sully and Ney'tiri defend Pandora against a new threat while exploring the deeper mysteries of the planet.",
-                    image: "mov/Avatar%20Fire%20and%20Ash.jpg",
+                    image: optimizeImageUrl("mov/Avatar%20Fire%20and%20Ash.jpg"),
                     director: "James Cameron",
                     status: "New Release"
                 },
@@ -1252,7 +1315,7 @@
                     duration: "1h 46m",
                     genres: ["Action", "Thriller"],
                     description: "A former bodyguard seeks revenge after her best friend is murdered. She follows the killer to a remote location.",
-                    image: "mov/Ballerina.jpg",
+                    image: optimizeImageUrl("mov/Ballerina.jpg"),
                     director: "Chad Stahelski",
                     status: "New Release"
                 },
@@ -1265,7 +1328,7 @@
                     duration: "2h 49m",
                     genres: ["Action", "Crime", "Thriller"],
                     description: "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face a new enemy.",
-                    image: "mov/john%20wick.jpg",
+                    image: optimizeImageUrl("mov/john%20wick.jpg"),
                     director: "Chad Stahelski",
                     status: "Available"
                 },
@@ -1278,7 +1341,7 @@
                     duration: "1h 47m",
                     genres: ["Thriller"],
                     description: "Two women climb a 2,000-foot radio tower and become stranded at the top with no way down.",
-                    image: "mov/Fall.jpg",
+                    image: optimizeImageUrl("mov/Fall.jpg"),
                     director: "Scott Mann",
                     status: "Available"
                 },
@@ -1291,7 +1354,7 @@
                     duration: "1h 30m",
                     genres: ["Crime", "Drama", "Thriller"],
                     description: "A demoted police officer assigned to a call dispatch desk is conflicted when he receives an emergency phone call.",
-                    image: "mov/The%20Guilty.jpg",
+                    image: optimizeImageUrl("mov/The%20Guilty.jpg"),
                     director: "Antoine Fuqua",
                     status: "Available"
                 },
@@ -1304,7 +1367,7 @@
                     duration: "2h 28m",
                     genres: ["Action", "Sci-Fi"],
                     description: "Return to a world of two realities: one, everyday life; the other, what lies behind it. To find out if his reality is a construct.",
-                    image: "mov/The%20Matrix%20Resurrections.jpg",
+                    image: optimizeImageUrl("mov/The%20Matrix%20Resurrections.jpg"),
                     director: "Lana Wachowski",
                     status: "Available"
                 },
@@ -1317,7 +1380,7 @@
                     duration: "1h 52m",
                     genres: ["Action", "Adventure", "Sci-Fi"],
                     description: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth.",
-                    image: "mov/Venom.jpg",
+                    image: optimizeImageUrl("mov/Venom.jpg"),
                     director: "Ruben Fleischer",
                     status: "Available"
                 },
@@ -1330,7 +1393,7 @@
                     duration: "1h 53m",
                     genres: ["Action", "Horror", "Sci-Fi"],
                     description: "A group of scientists exploring the Marianas Trench encounter a massive attack shark thought to be extinct.",
-                    image: "mov/Meg.jpg",
+                    image: optimizeImageUrl("mov/Meg.jpg"),
                     director: "Jon Turteltaub",
                     status: "Available"
                 },
@@ -1343,7 +1406,7 @@
                     duration: "2h 14m",
                     genres: ["Biography", "Drama", "Thriller"],
                     description: "The NSA's illegal surveillance techniques are leaked to the public by one of the agency's employees, Edward Snowden.",
-                    image: "mov/Snowden.jpg",
+                    image: optimizeImageUrl("mov/Snowden.jpg"),
                     director: "Oliver Stone",
                     status: "Available"
                 },
@@ -1356,7 +1419,7 @@
                     duration: "1h 55m",
                     genres: ["Drama", "Thriller"],
                     description: "A well-to-do husband who allows his wife to have affairs in order to avoid a divorce becomes a prime suspect.",
-                    image: "mov/deep%20water.jpg",
+                    image: optimizeImageUrl("mov/deep%20water.jpg"),
                     director: "Adrian Lyne",
                     status: "Available"
                 },
@@ -1369,7 +1432,7 @@
                     duration: "2h 29m",
                     genres: ["Drama", "Mystery", "Thriller"],
                     description: "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him.",
-                    image: "mov/gone%20girl.jpg",
+                    image: optimizeImageUrl("mov/gone%20girl.jpg"),
                     director: "David Fincher",
                     status: "Available"
                 },
@@ -1382,7 +1445,7 @@
                     duration: "1h 57m",
                     genres: ["Crime", "Drama", "Thriller"],
                     description: "When Louis Bloom, a con man desperate for work, muscles into the world of L.A. crime journalism.",
-                    image: "mov/NightCrawler.jpg",
+                    image: optimizeImageUrl("mov/NightCrawler.jpg"),
                     director: "Dan Gilroy",
                     status: "Available"
                 },
@@ -1395,7 +1458,7 @@
                     duration: "2h 49m",
                     genres: ["Adventure", "Drama", "Sci-Fi"],
                     description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-                    image: "mov/interstellar.jpg",
+                    image: optimizeImageUrl("mov/interstellar.jpg"),
                     director: "Christopher Nolan",
                     status: "Available"
                 },
@@ -1408,7 +1471,7 @@
                     duration: "2h 33m",
                     genres: ["Crime", "Drama", "Mystery"],
                     description: "When two girls disappear, a desperate father takes matters into his own hands while the police pursue multiple leads.",
-                    image: "mov/Prisoners.jpg",
+                    image: optimizeImageUrl("mov/Prisoners.jpg"),
                     director: "Denis Villeneuve",
                     status: "Available"
                 },
@@ -1421,7 +1484,7 @@
                     duration: "2h 14m",
                     genres: ["Biography", "Drama", "Thriller"],
                     description: "The true story of Captain Richard Phillips and the 2009 hijacking by Somali pirates of the US-flagged MV Maersk Alabama.",
-                    image: "mov/Captain%20Philips.jpg",
+                    image: optimizeImageUrl("mov/Captain%20Philips.jpg"),
                     director: "Paul Greengrass",
                     status: "Available"
                 },
@@ -1434,7 +1497,7 @@
                     duration: "1h 55m",
                     genres: ["Crime", "Mystery", "Thriller"],
                     description: "An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances.",
-                    image: "mov/Now%20You%20See%20Me.jpg",
+                    image: optimizeImageUrl("mov/Now%20You%20See%20Me.jpg"),
                     director: "Louis Leterrier",
                     status: "Available"
                 },
@@ -1447,7 +1510,7 @@
                     duration: "3h 00m",
                     genres: ["Biography", "Comedy", "Crime"],
                     description: "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall.",
-                    image: "mov/the%20wolf%20of%20wall%20street.jpg",
+                    image: optimizeImageUrl("mov/the%20wolf%20of%20wall%20street.jpg"),
                     director: "Martin Scorsese",
                     status: "Available"
                 },
@@ -1460,7 +1523,7 @@
                     duration: "2h 28m",
                     genres: ["Action", "Sci-Fi", "Thriller"],
                     description: "A thief who steals corporate secrets through dream-sharing technology is given the task of planting an idea into the mind of a C.E.O.",
-                    image: "mov/inception.jpg",
+                    image: optimizeImageUrl("mov/inception.jpg"),
                     director: "Christopher Nolan",
                     status: "Available"
                 },
@@ -1473,7 +1536,7 @@
                     duration: "1h 45m",
                     genres: ["Drama", "Thriller", "War"],
                     description: "A young man comforts his older brother's wife and children after he goes missing in Afghanistan.",
-                    image: "mov/brothers.jpg",
+                    image: optimizeImageUrl("mov/brothers.jpg"),
                     director: "Jim Sheridan",
                     status: "Available"
                 },
@@ -1486,7 +1549,7 @@
                     duration: "1h 47m",
                     genres: ["Action", "Crime", "Thriller"],
                     description: "Brian O'Conner, back working for the FBI in Los Angeles, teams up with Dominic Toretto to bring down a heroin importer.",
-                    image: "mov/Fast%20%26%20Furious.jpg",
+                    image: optimizeImageUrl("mov/Fast%20%26%20Furious.jpg"),
                     director: "Justin Lin",
                     status: "Available"
                 },
@@ -1499,7 +1562,7 @@
                     duration: "2h 24m",
                     genres: ["Action", "Adventure", "Sci-Fi"],
                     description: "An ancient struggle between two Cybertronian races comes to Earth, with a clue to ultimate power held by a teenager.",
-                    image: "mov/Transformers.jpg",
+                    image: optimizeImageUrl("mov/Transformers.jpg"),
                     director: "Michael Bay",
                     status: "Available"
                 },
@@ -1512,7 +1575,7 @@
                     duration: "1h 43m",
                     genres: ["Horror", "Mystery", "Thriller"],
                     description: "Two strangers awaken in a room with no recollection of how they got there, and soon discover they're pawns in a deadly game.",
-                    image: "mov/Saw.jpg",
+                    image: optimizeImageUrl("mov/Saw.jpg"),
                     director: "James Wan",
                     status: "Available"
                 },
@@ -1525,7 +1588,7 @@
                     duration: "2h 10m",
                     genres: ["Adventure", "Fantasy", "Mystery"],
                     description: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord.",
-                    image: "mov/Harry%20Potter.jpg",
+                    image: optimizeImageUrl("mov/Harry%20Potter.jpg"),
                     director: "David Yates",
                     status: "Available"
                 },
@@ -1538,7 +1601,7 @@
                     duration: "2h 2m",
                     genres: ["Comedy", "Drama", "Thriller"],
                     description: "Six short stories that explore the extremities of human behavior involving people in distress.",
-                    image: "mov/wild%20tales.jpg",
+                    image: optimizeImageUrl("mov/wild%20tales.jpg"),
                     director: "Damián Szifron",
                     status: "Available"
                 },
@@ -1551,7 +1614,7 @@
                     duration: "1h 43m",
                     genres: ["Comedy", "Family"],
                     description: "An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone.",
-                    image: "mov/Home%20Alone.jpg",
+                    image: optimizeImageUrl("mov/Home%20Alone.jpg"),
                     director: "Chris Columbus",
                     status: "Available"
                 },
@@ -1564,7 +1627,7 @@
                     duration: "2h 7m",
                     genres: ["Crime", "Drama", "Mystery"],
                     description: "Two detectives hunt a serial killer who uses the seven deadly sins as his motives.",
-                    image: "mov/se7en.jpg",
+                    image: optimizeImageUrl("mov/se7en.jpg"),
                     director: "David Fincher",
                     status: "Available"
                 },
@@ -1577,7 +1640,7 @@
                     duration: "2h 29m",
                     genres: ["Adventure", "Sci-Fi"],
                     description: "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest.",
-                    image: "mov/A%20space%20Odyssey.jpg",
+                    image: optimizeImageUrl("mov/A%20space%20Odyssey.jpg"),
                     director: "Stanley Kubrick",
                     status: "Classic"
                 }
@@ -1594,7 +1657,7 @@
                     duration: "2 Seasons",
                     genres: ["Drama"],
                     description: "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
-                    image: "mov/Euphoria.jpg",
+                    image: optimizeImageUrl("mov/Euphoria.jpg"),
                     director: "Sam Levinson",
                     status: "Available"
                 },
@@ -1607,7 +1670,7 @@
                     duration: "3 Seasons",
                     genres: ["Comedy", "Drama"],
                     description: "Ramy, a first-generation Egyptian-American, is on a spiritual journey in his politically divided New Jersey neighborhood.",
-                    image: "mov/ramy.jpg",
+                    image: optimizeImageUrl("mov/ramy.jpg"),
                     director: "Ramy Youssef",
                     status: "Available"
                 },
@@ -1620,7 +1683,7 @@
                     duration: "4 Seasons",
                     genres: ["Crime", "Drama", "Romance"],
                     description: "A dangerously charming, intensely obsessive young man goes to extreme measures to insert himself into the lives of those he is transfixed by.",
-                    image: "mov/You.jpg",
+                    image: optimizeImageUrl("mov/You.jpg"),
                     director: "Greg Berlanti",
                     status: "Available"
                 },
@@ -1633,7 +1696,7 @@
                     duration: "5 Seasons",
                     genres: ["Action", "Crime", "Mystery"],
                     description: "An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history.",
-                    image: "mov/la%20casa%20de%20papel.jpg",
+                    image: optimizeImageUrl("mov/la%20casa%20de%20papel.jpg"),
                     director: "Álex Pina",
                     status: "Available"
                 },
@@ -1646,7 +1709,7 @@
                     duration: "3 Seasons",
                     genres: ["Action", "Crime", "Drama"],
                     description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.",
-                    image: "mov/daredevil.jpg",
+                    image: optimizeImageUrl("mov/daredevil.jpg"),
                     director: "Drew Goddard",
                     status: "Available"
                 },
@@ -1659,7 +1722,7 @@
                     duration: "4 Seasons",
                     genres: ["Crime", "Drama", "Thriller"],
                     description: "Elliot, a brilliant but highly unstable young cyber-security engineer, becomes involved in a hacker organization.",
-                    image: "mov/MR%20Robot.jpg",
+                    image: optimizeImageUrl("mov/MR%20Robot.jpg"),
                     director: "Sam Esmail",
                     status: "Available"
                 },
@@ -1672,7 +1735,7 @@
                     duration: "6 Seasons",
                     genres: ["Drama", "Sci-Fi", "Thriller"],
                     description: "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations meet its darkest instincts.",
-                    image: "mov/Black%20Mirror.jpg",
+                    image: optimizeImageUrl("mov/Black%20Mirror.jpg"),
                     director: "Charlie Brooker",
                     status: "Available"
                 },
@@ -1685,7 +1748,7 @@
                     duration: "1 Season",
                     genres: ["Action", "Adventure", "Fantasy"],
                     description: "Steven Grant discovers he's been granted the powers of an Egyptian moon god.",
-                    image: "mov/Moon%20Knight.jpg",
+                    image: optimizeImageUrl("mov/Moon%20Knight.jpg"),
                     director: "Mohamed Diab",
                     status: "Available"
                 },
@@ -1698,7 +1761,7 @@
                     duration: "2 Seasons",
                     genres: ["Action", "Adventure", "Fantasy"],
                     description: "The mercurial villain Loki resumes his role as the God of Mischief in a series that takes place after the events of Avengers: Endgame.",
-                    image: "mov/Loki.jpg",
+                    image: optimizeImageUrl("mov/Loki.jpg"),
                     director: "Kate Herron",
                     status: "Available"
                 },
@@ -1711,7 +1774,7 @@
                     duration: "1 Season",
                     genres: ["Drama"],
                     description: "Orphaned chess prodigy Beth Harmon struggles with addiction in a quest to become the world's greatest chess player.",
-                    image: "mov/The%20Queen's%20Gambit.jpg",
+                    image: optimizeImageUrl("mov/The%20Queen's%20Gambit.jpg"),
                     director: "Scott Frank",
                     status: "Available"
                 },
@@ -1724,7 +1787,7 @@
                     duration: "1 Season",
                     genres: ["Action", "Drama", "Mystery"],
                     description: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games for a tempting prize.",
-                    image: "mov/Squid%20Game.jpg",
+                    image: optimizeImageUrl("mov/Squid%20Game.jpg"),
                     director: "Hwang Dong-hyuk",
                     status: "Available"
                 },
@@ -1737,7 +1800,7 @@
                     duration: "8 Seasons",
                     genres: ["Crime", "Drama", "Mystery"],
                     description: "By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer.",
-                    image: "mov/Dexter.jpg",
+                    image: optimizeImageUrl("mov/Dexter.jpg"),
                     director: "James Manos Jr.",
                     status: "Available"
                 },
@@ -1750,14 +1813,79 @@
                     duration: "5 Seasons",
                     genres: ["Action", "Crime", "Drama", "Thriller"],
                     description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
-                    image: "mov/prison%20break.jpg",
+                    image: optimizeImageUrl("mov/prison%20break.jpg"),
                     director: "Paul Scheuring",
                     status: "Available"
                 }
             ]
         };
 
-        // ===== DOM MANIPULATION FUNCTIONS =====
+        // ===== SMART IMAGE LOADER =====
+        function initImageLoader() {
+            const imageContainers = document.querySelectorAll('.movie-poster');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const container = entry.target;
+                        const img = container.querySelector('img');
+                        const dataSrc = img?.getAttribute('data-src');
+                        
+                        if (dataSrc && !img.src) {
+                            loadImageSafely(img, dataSrc, container);
+                        }
+                        
+                        observer.unobserve(container);
+                    }
+                });
+            }, {
+                rootMargin: '100px 0px',
+                threshold: 0.01
+            });
+            
+            imageContainers.forEach(container => {
+                observer.observe(container);
+            });
+            
+            // تحميل أول 6 صور فوراً (التي في أعلى الصفحة)
+            const firstImages = Array.from(imageContainers).slice(0, 6);
+            firstImages.forEach(container => {
+                const img = container.querySelector('img');
+                const dataSrc = img?.getAttribute('data-src');
+                if (dataSrc) {
+                    loadImageSafely(img, dataSrc, container);
+                }
+            });
+        }
+
+        function loadImageSafely(imgElement, imageUrl, container) {
+            // 1. إنشاء صورة مخفية للتحميل المسبق
+            const preloadImage = new Image();
+            
+            // 2. عند نجاح التحميل
+            preloadImage.onload = function() {
+                if (imgElement && container) {
+                    imgElement.src = imageUrl;
+                    imgElement.classList.add('loaded');
+                    container.classList.add('loaded');
+                }
+            };
+            
+            // 3. عند فشل التحميل (بدون أخطاء في الكونسول)
+            preloadImage.onerror = function() {
+                if (imgElement && container) {
+                    // استخدم صورة بديلة آمنة
+                    imgElement.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMjIyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIENvdmVyPC90ZXh0Pjwvc3ZnPg==';
+                    imgElement.classList.add('loaded');
+                    container.classList.add('loaded');
+                }
+            };
+            
+            // 4. بدء التحميل
+            preloadImage.src = imageUrl;
+        }
+
+        // ===== تعديل دالة createMovieCard =====
         function createMovieCard(item) {
             return `
                 <div class="movie-card" data-id="${item.id}" data-type="${item.type}" data-genres="${item.genres ? item.genres.join(',') : ''}">
@@ -1765,7 +1893,10 @@
                     ${item.status && item.status.includes('New') ? '<div class="movie-badge" style="background: #00b894;">NEW</div>' : ''}
                     ${item.status && item.status.includes('Classic') ? '<div class="movie-badge" style="background: #6c5ce7;">CLASSIC</div>' : ''}
                     <div class="movie-poster">
-                        <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x450/333/666?text=No+Image'">
+                        <!-- استخدم data-src بدلاً من src -->
+                        <img data-src="${item.image}" 
+                             alt="${item.title}"
+                             class="movie-image">
                         <div class="movie-overlay">
                             <div class="movie-info-overlay">
                                 <h3 class="movie-title">${item.title}</h3>
@@ -2012,6 +2143,11 @@
             
             // Initialize with all content showing
             filterContent('all');
+            
+            // تهيئة محمل الصور بعد تأخير بسيط
+            setTimeout(() => {
+                initImageLoader();
+            }, 100);
         });
     </script>
 </body>
