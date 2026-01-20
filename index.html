@@ -897,12 +897,12 @@
         <div class="hero-content">
             <h1 class="hero-title">My Personal Cinema</h1>
             <div class="hero-meta">
-                <span><i class="fas fa-film"></i> 23 Titles</span>
+                <span><i class="fas fa-film"></i> 41 Titles</span>
                 <span><i class="fas fa-eye"></i> 4 Watching</span>
-                <span class="movie-rating"><i class="fas fa-star"></i> 7.8 Avg Rating</span>
+                <span class="movie-rating"><i class="fas fa-star"></i> 7.7 Avg Rating</span>
             </div>
             <p class="hero-description">
-                Your personal collection of movies and TV series. Browse through 23 carefully 
+                Your personal collection of movies and TV series. Browse through 41 carefully 
                 selected titles with original posters and descriptions. Updated regularly.
             </p>
             <div class="hero-buttons">
@@ -951,7 +951,7 @@
                 <h2 class="section-title">
                     <i class="fas fa-film"></i> Movies Collection
                 </h2>
-                <span class="see-all">10 Titles</span>
+                <span class="see-all">28 Titles</span>
             </div>
             <div class="movies-grid" id="moviesGrid">
                 <!-- Content will be loaded by JavaScript -->
@@ -975,7 +975,7 @@
         <section class="content-section" id="all-content">
             <div class="section-header">
                 <h2 class="section-title">
-                    <i class="fas fa-th-list"></i> Complete Library (23 Titles)
+                    <i class="fas fa-th-list"></i> Complete Library (41 Titles)
                 </h2>
                 <span class="see-all">A-Z</span>
             </div>
@@ -1036,7 +1036,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>My Cinema</h3>
-                <p>Personal movie library with 23 titles. Updated regularly with new additions.</p>
+                <p>Personal movie library with 41 titles. Updated regularly with new additions.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-github"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1069,8 +1069,8 @@
             <div class="footer-section">
                 <h3>Statistics</h3>
                 <ul class="footer-links">
-                    <li><span style="color: #b0b0b0;">Total Titles: 23</span></li>
-                    <li><span style="color: #b0b0b0;">Movies: 10</span></li>
+                    <li><span style="color: #b0b0b0;">Total Titles: 41</span></li>
+                    <li><span style="color: #b0b0b0;">Movies: 28</span></li>
                     <li><span style="color: #b0b0b0;">Series: 13</span></li>
                     <li><span style="color: #b0b0b0;">Watching: 4</span></li>
                 </ul>
@@ -1087,23 +1087,10 @@
     <script>
         // ===== COMPLETE MOVIE LIBRARY WITH LOCAL IMAGES =====
         const movieLibrary = {
-            // Currently Watching (4 titles)
+            // Currently Watching (4 titles) - Sorted by year (newest first)
             watching: [
                 {
                     id: 1,
-                    title: "Prison Break",
-                    type: "series",
-                    year: 2005,
-                    rating: 8.3,
-                    duration: "5 Seasons",
-                    genres: ["Action", "Crime", "Drama", "Thriller"],
-                    description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
-                    image: "mov/prison%20break.jpg",
-                    director: "Paul Scheuring",
-                    status: "Watching 👀 Season 3"
-                },
-                {
-                    id: 2,
                     title: "Black Mirror",
                     type: "series",
                     year: 2011,
@@ -1116,7 +1103,7 @@
                     status: "Watching 👀 Season 6"
                 },
                 {
-                    id: 3,
+                    id: 2,
                     title: "Daredevil",
                     type: "series",
                     year: 2015,
@@ -1126,6 +1113,19 @@
                     description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.",
                     image: "mov/daredevil.jpg",
                     director: "Drew Goddard",
+                    status: "Watching 👀 Season 3"
+                },
+                {
+                    id: 3,
+                    title: "Prison Break",
+                    type: "series",
+                    year: 2005,
+                    rating: 8.3,
+                    duration: "5 Seasons",
+                    genres: ["Action", "Crime", "Drama", "Thriller"],
+                    description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
+                    image: "mov/prison%20break.jpg",
+                    director: "Paul Scheuring",
                     status: "Watching 👀 Season 3"
                 },
                 {
@@ -1143,75 +1143,36 @@
                 }
             ],
 
-            // Movies Collection (10 titles)
+            // Movies Collection (28 titles) - Sorted by year (newest first)
             movies: [
                 {
                     id: 101,
-                    title: "Se7en",
+                    title: "Oppenheimer",
                     type: "movie",
-                    year: 1995,
-                    rating: 8.6,
-                    duration: "2h 7m",
-                    genres: ["Crime", "Drama", "Mystery"],
-                    description: "Two detectives hunt a serial killer who uses the seven deadly sins as his motives.",
-                    image: "mov/se7en.jpg",
-                    director: "David Fincher",
-                    status: "Available"
+                    year: 2023,
+                    rating: 8.3,
+                    duration: "3h 00m",
+                    genres: ["Biography", "Drama", "History"],
+                    description: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+                    image: "mov/Oppenheimer.jpg",
+                    director: "Christopher Nolan",
+                    status: "New Release"
                 },
                 {
                     id: 102,
-                    title: "Interstellar",
+                    title: "Avatar: Fire and Ash",
                     type: "movie",
-                    year: 2014,
-                    rating: 8.6,
-                    duration: "2h 49m",
-                    genres: ["Adventure", "Drama", "Sci-Fi"],
-                    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-                    image: "mov/interstellar.jpg",
-                    director: "Christopher Nolan",
-                    status: "Available"
+                    year: 2025,
+                    rating: 7.8,
+                    duration: "2h 15m",
+                    genres: ["Action", "Adventure", "Fantasy"],
+                    description: "Jake Sully and Ney'tiri defend Pandora against a new threat while exploring the deeper mysteries of the planet.",
+                    image: "mov/Avatar%20Fire%20and%20Ash.jpg",
+                    director: "James Cameron",
+                    status: "New Release"
                 },
                 {
                     id: 103,
-                    title: "Venom",
-                    type: "movie",
-                    year: 2018,
-                    rating: 6.6,
-                    duration: "1h 52m",
-                    genres: ["Action", "Adventure", "Sci-Fi"],
-                    description: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth.",
-                    image: "mov/Venom.jpg",
-                    director: "Ruben Fleischer",
-                    status: "Available"
-                },
-                {
-                    id: 104,
-                    title: "Brothers",
-                    type: "movie",
-                    year: 2009,
-                    rating: 7.1,
-                    duration: "1h 45m",
-                    genres: ["Drama", "Thriller", "War"],
-                    description: "A young man comforts his older brother's wife and children after he goes missing in Afghanistan.",
-                    image: "mov/brothers.jpg",
-                    director: "Jim Sheridan",
-                    status: "Available"
-                },
-                {
-                    id: 105,
-                    title: "Wild Tales",
-                    type: "movie",
-                    year: 2014,
-                    rating: 8.1,
-                    duration: "2h 2m",
-                    genres: ["Comedy", "Drama", "Thriller"],
-                    description: "Six short stories that explore the extremities of human behavior involving people in distress.",
-                    image: "mov/wild%20tales.jpg",
-                    director: "Damián Szifron",
-                    status: "Available"
-                },
-                {
-                    id: 106,
                     title: "Ballerina",
                     type: "movie",
                     year: 2024,
@@ -1224,20 +1185,72 @@
                     status: "New Release"
                 },
                 {
-                    id: 107,
-                    title: "Home Alone",
+                    id: 104,
+                    title: "John Wick: Chapter 4",
                     type: "movie",
-                    year: 1990,
-                    rating: 7.7,
-                    duration: "1h 43m",
-                    genres: ["Comedy", "Family"],
-                    description: "An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone.",
-                    image: "mov/Home%20Alone.jpg",
-                    director: "Chris Columbus",
+                    year: 2023,
+                    rating: 8.0,
+                    duration: "2h 49m",
+                    genres: ["Action", "Crime", "Thriller"],
+                    description: "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face a new enemy.",
+                    image: "mov/john%20wick.jpg",
+                    director: "Chad Stahelski",
+                    status: "Available"
+                },
+                {
+                    id: 105,
+                    title: "Fall",
+                    type: "movie",
+                    year: 2022,
+                    rating: 6.4,
+                    duration: "1h 47m",
+                    genres: ["Thriller"],
+                    description: "Two women climb a 2,000-foot radio tower and become stranded at the top with no way down.",
+                    image: "mov/Fall.jpg",
+                    director: "Scott Mann",
+                    status: "Available"
+                },
+                {
+                    id: 106,
+                    title: "The Guilty",
+                    type: "movie",
+                    year: 2021,
+                    rating: 6.3,
+                    duration: "1h 30m",
+                    genres: ["Crime", "Drama", "Thriller"],
+                    description: "A demoted police officer assigned to a call dispatch desk is conflicted when he receives an emergency phone call.",
+                    image: "mov/The%20Guilty.jpg",
+                    director: "Antoine Fuqua",
+                    status: "Available"
+                },
+                {
+                    id: 107,
+                    title: "The Matrix Resurrections",
+                    type: "movie",
+                    year: 2021,
+                    rating: 5.7,
+                    duration: "2h 28m",
+                    genres: ["Action", "Sci-Fi"],
+                    description: "Return to a world of two realities: one, everyday life; the other, what lies behind it. To find out if his reality is a construct.",
+                    image: "mov/The%20Matrix%20Resurrections.jpg",
+                    director: "Lana Wachowski",
                     status: "Available"
                 },
                 {
                     id: 108,
+                    title: "Venom",
+                    type: "movie",
+                    year: 2018,
+                    rating: 6.6,
+                    duration: "1h 52m",
+                    genres: ["Action", "Adventure", "Sci-Fi"],
+                    description: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth.",
+                    image: "mov/Venom.jpg",
+                    director: "Ruben Fleischer",
+                    status: "Available"
+                },
+                {
+                    id: 109,
                     title: "Meg",
                     type: "movie",
                     year: 2018,
@@ -1250,7 +1263,163 @@
                     status: "Available"
                 },
                 {
-                    id: 109,
+                    id: 110,
+                    title: "Snowden",
+                    type: "movie",
+                    year: 2016,
+                    rating: 7.3,
+                    duration: "2h 14m",
+                    genres: ["Biography", "Drama", "Thriller"],
+                    description: "The NSA's illegal surveillance techniques are leaked to the public by one of the agency's employees, Edward Snowden.",
+                    image: "mov/Snowden.jpg",
+                    director: "Oliver Stone",
+                    status: "Available"
+                },
+                {
+                    id: 111,
+                    title: "Deep Water",
+                    type: "movie",
+                    year: 2015,
+                    rating: 5.4,
+                    duration: "1h 55m",
+                    genres: ["Drama", "Thriller"],
+                    description: "A well-to-do husband who allows his wife to have affairs in order to avoid a divorce becomes a prime suspect.",
+                    image: "mov/deep%20water.jpg",
+                    director: "Adrian Lyne",
+                    status: "Available"
+                },
+                {
+                    id: 112,
+                    title: "Gone Girl",
+                    type: "movie",
+                    year: 2014,
+                    rating: 8.1,
+                    duration: "2h 29m",
+                    genres: ["Drama", "Mystery", "Thriller"],
+                    description: "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him.",
+                    image: "mov/gone%20girl.jpg",
+                    director: "David Fincher",
+                    status: "Available"
+                },
+                {
+                    id: 113,
+                    title: "NightCrawler",
+                    type: "movie",
+                    year: 2014,
+                    rating: 7.8,
+                    duration: "1h 57m",
+                    genres: ["Crime", "Drama", "Thriller"],
+                    description: "When Louis Bloom, a con man desperate for work, muscles into the world of L.A. crime journalism.",
+                    image: "mov/NightCrawler.jpg",
+                    director: "Dan Gilroy",
+                    status: "Available"
+                },
+                {
+                    id: 114,
+                    title: "Interstellar",
+                    type: "movie",
+                    year: 2014,
+                    rating: 8.6,
+                    duration: "2h 49m",
+                    genres: ["Adventure", "Drama", "Sci-Fi"],
+                    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+                    image: "mov/interstellar.jpg",
+                    director: "Christopher Nolan",
+                    status: "Available"
+                },
+                {
+                    id: 115,
+                    title: "Prisoners",
+                    type: "movie",
+                    year: 2013,
+                    rating: 8.1,
+                    duration: "2h 33m",
+                    genres: ["Crime", "Drama", "Mystery"],
+                    description: "When two girls disappear, a desperate father takes matters into his own hands while the police pursue multiple leads.",
+                    image: "mov/Prisoners.jpg",
+                    director: "Denis Villeneuve",
+                    status: "Available"
+                },
+                {
+                    id: 116,
+                    title: "Captain Philips",
+                    type: "movie",
+                    year: 2013,
+                    rating: 7.8,
+                    duration: "2h 14m",
+                    genres: ["Biography", "Drama", "Thriller"],
+                    description: "The true story of Captain Richard Phillips and the 2009 hijacking by Somali pirates of the US-flagged MV Maersk Alabama.",
+                    image: "mov/Captain%20Philips.jpg",
+                    director: "Paul Greengrass",
+                    status: "Available"
+                },
+                {
+                    id: 117,
+                    title: "Now You See Me",
+                    type: "movie",
+                    year: 2013,
+                    rating: 7.2,
+                    duration: "1h 55m",
+                    genres: ["Crime", "Mystery", "Thriller"],
+                    description: "An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances.",
+                    image: "mov/Now%20You%20See%20Me.jpg",
+                    director: "Louis Leterrier",
+                    status: "Available"
+                },
+                {
+                    id: 118,
+                    title: "The Wolf of Wall Street",
+                    type: "movie",
+                    year: 2013,
+                    rating: 8.2,
+                    duration: "3h 00m",
+                    genres: ["Biography", "Comedy", "Crime"],
+                    description: "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall.",
+                    image: "mov/the%20wolf%20of%20wall%20street.jpg",
+                    director: "Martin Scorsese",
+                    status: "Available"
+                },
+                {
+                    id: 119,
+                    title: "Inception",
+                    type: "movie",
+                    year: 2010,
+                    rating: 8.8,
+                    duration: "2h 28m",
+                    genres: ["Action", "Sci-Fi", "Thriller"],
+                    description: "A thief who steals corporate secrets through dream-sharing technology is given the task of planting an idea into the mind of a C.E.O.",
+                    image: "mov/inception.jpg",
+                    director: "Christopher Nolan",
+                    status: "Available"
+                },
+                {
+                    id: 120,
+                    title: "Brothers",
+                    type: "movie",
+                    year: 2009,
+                    rating: 7.1,
+                    duration: "1h 45m",
+                    genres: ["Drama", "Thriller", "War"],
+                    description: "A young man comforts his older brother's wife and children after he goes missing in Afghanistan.",
+                    image: "mov/brothers.jpg",
+                    director: "Jim Sheridan",
+                    status: "Available"
+                },
+                {
+                    id: 121,
+                    title: "Fast & Furious",
+                    type: "movie",
+                    year: 2009,
+                    rating: 6.5,
+                    duration: "1h 47m",
+                    genres: ["Action", "Crime", "Thriller"],
+                    description: "Brian O'Conner, back working for the FBI in Los Angeles, teams up with Dominic Toretto to bring down a heroin importer.",
+                    image: "mov/Fast%20%26%20Furious.jpg",
+                    director: "Justin Lin",
+                    status: "Available"
+                },
+                {
+                    id: 122,
                     title: "Transformers",
                     type: "movie",
                     year: 2007,
@@ -1263,63 +1432,102 @@
                     status: "Available"
                 },
                 {
-                    id: 110,
-                    title: "Inception",
+                    id: 123,
+                    title: "Saw",
                     type: "movie",
-                    year: 2010,
-                    rating: 8.8,
-                    duration: "2h 28m",
-                    genres: ["Action", "Sci-Fi", "Thriller"],
-                    description: "A thief who steals corporate secrets through dream-sharing technology is given the task of planting an idea into the mind of a C.E.O.",
-                    image: "mov/inception.jpg",
-                    director: "Christopher Nolan",
+                    year: 2004,
+                    rating: 7.6,
+                    duration: "1h 43m",
+                    genres: ["Horror", "Mystery", "Thriller"],
+                    description: "Two strangers awaken in a room with no recollection of how they got there, and soon discover they're pawns in a deadly game.",
+                    image: "mov/Saw.jpg",
+                    director: "James Wan",
                     status: "Available"
+                },
+                {
+                    id: 124,
+                    title: "Harry Potter and the Deathly Hallows: Part 2",
+                    type: "movie",
+                    year: 2011,
+                    rating: 8.1,
+                    duration: "2h 10m",
+                    genres: ["Adventure", "Fantasy", "Mystery"],
+                    description: "Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord.",
+                    image: "mov/Harry%20Potter.jpg",
+                    director: "David Yates",
+                    status: "Available"
+                },
+                {
+                    id: 125,
+                    title: "Wild Tales",
+                    type: "movie",
+                    year: 2014,
+                    rating: 8.1,
+                    duration: "2h 2m",
+                    genres: ["Comedy", "Drama", "Thriller"],
+                    description: "Six short stories that explore the extremities of human behavior involving people in distress.",
+                    image: "mov/wild%20tales.jpg",
+                    director: "Damián Szifron",
+                    status: "Available"
+                },
+                {
+                    id: 126,
+                    title: "Home Alone",
+                    type: "movie",
+                    year: 1990,
+                    rating: 7.7,
+                    duration: "1h 43m",
+                    genres: ["Comedy", "Family"],
+                    description: "An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone.",
+                    image: "mov/Home%20Alone.jpg",
+                    director: "Chris Columbus",
+                    status: "Available"
+                },
+                {
+                    id: 127,
+                    title: "Se7en",
+                    type: "movie",
+                    year: 1995,
+                    rating: 8.6,
+                    duration: "2h 7m",
+                    genres: ["Crime", "Drama", "Mystery"],
+                    description: "Two detectives hunt a serial killer who uses the seven deadly sins as his motives.",
+                    image: "mov/se7en.jpg",
+                    director: "David Fincher",
+                    status: "Available"
+                },
+                {
+                    id: 128,
+                    title: "2001: A Space Odyssey",
+                    type: "movie",
+                    year: 1968,
+                    rating: 8.3,
+                    duration: "2h 29m",
+                    genres: ["Adventure", "Sci-Fi"],
+                    description: "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest.",
+                    image: "mov/A%20space%20Odyssey.jpg",
+                    director: "Stanley Kubrick",
+                    status: "Classic"
                 }
             ],
 
-            // TV Series Collection (13 titles)
+            // TV Series Collection (13 titles) - Sorted by year (newest first)
             series: [
                 {
                     id: 201,
-                    title: "You",
+                    title: "Euphoria",
                     type: "series",
-                    year: 2018,
-                    rating: 7.7,
-                    duration: "4 Seasons",
-                    genres: ["Crime", "Drama", "Romance"],
-                    description: "A dangerously charming, intensely obsessive young man goes to extreme measures to insert himself into the lives of those he is transfixed by.",
-                    image: "mov/You.jpg",
-                    director: "Greg Berlanti",
+                    year: 2019,
+                    rating: 8.4,
+                    duration: "2 Seasons",
+                    genres: ["Drama"],
+                    description: "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
+                    image: "mov/Euphoria.jpg",
+                    director: "Sam Levinson",
                     status: "Available"
                 },
                 {
                     id: 202,
-                    title: "Prison Break",
-                    type: "series",
-                    year: 2005,
-                    rating: 8.3,
-                    duration: "5 Seasons",
-                    genres: ["Action", "Crime", "Drama", "Thriller"],
-                    description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
-                    image: "mov/prison%20break.jpg",
-                    director: "Paul Scheuring",
-                    status: "Available"
-                },
-                {
-                    id: 203,
-                    title: "Dexter",
-                    type: "series",
-                    year: 2006,
-                    rating: 8.6,
-                    duration: "8 Seasons",
-                    genres: ["Crime", "Drama", "Mystery"],
-                    description: "By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer.",
-                    image: "mov/Dexter.jpg",
-                    director: "James Manos Jr.",
-                    status: "Available"
-                },
-                {
-                    id: 204,
                     title: "Ramy",
                     type: "series",
                     year: 2019,
@@ -1332,33 +1540,20 @@
                     status: "Available"
                 },
                 {
-                    id: 205,
-                    title: "Black Mirror",
+                    id: 203,
+                    title: "You",
                     type: "series",
-                    year: 2011,
-                    rating: 8.8,
-                    duration: "6 Seasons",
-                    genres: ["Drama", "Sci-Fi", "Thriller"],
-                    description: "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations meet its darkest instincts.",
-                    image: "mov/Black%20Mirror.jpg",
-                    director: "Charlie Brooker",
+                    year: 2018,
+                    rating: 7.7,
+                    duration: "4 Seasons",
+                    genres: ["Crime", "Drama", "Romance"],
+                    description: "A dangerously charming, intensely obsessive young man goes to extreme measures to insert himself into the lives of those he is transfixed by.",
+                    image: "mov/You.jpg",
+                    director: "Greg Berlanti",
                     status: "Available"
                 },
                 {
-                    id: 206,
-                    title: "Daredevil",
-                    type: "series",
-                    year: 2015,
-                    rating: 8.6,
-                    duration: "3 Seasons",
-                    genres: ["Action", "Crime", "Drama"],
-                    description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.",
-                    image: "mov/daredevil.jpg",
-                    director: "Drew Goddard",
-                    status: "Available"
-                },
-                {
-                    id: 207,
+                    id: 204,
                     title: "La Casa de Papel",
                     type: "series",
                     year: 2017,
@@ -1371,20 +1566,46 @@
                     status: "Available"
                 },
                 {
-                    id: 208,
-                    title: "Squid Game",
+                    id: 205,
+                    title: "Daredevil",
                     type: "series",
-                    year: 2021,
-                    rating: 8.0,
-                    duration: "1 Season",
-                    genres: ["Action", "Drama", "Mystery"],
-                    description: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games for a tempting prize.",
-                    image: "mov/Squid%20Game.jpg",
-                    director: "Hwang Dong-hyuk",
+                    year: 2015,
+                    rating: 8.6,
+                    duration: "3 Seasons",
+                    genres: ["Action", "Crime", "Drama"],
+                    description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.",
+                    image: "mov/daredevil.jpg",
+                    director: "Drew Goddard",
                     status: "Available"
                 },
                 {
-                    id: 209,
+                    id: 206,
+                    title: "Mr. Robot",
+                    type: "series",
+                    year: 2015,
+                    rating: 8.6,
+                    duration: "4 Seasons",
+                    genres: ["Crime", "Drama", "Thriller"],
+                    description: "Elliot, a brilliant but highly unstable young cyber-security engineer, becomes involved in a hacker organization.",
+                    image: "mov/MR%20Robot.jpg",
+                    director: "Sam Esmail",
+                    status: "Available"
+                },
+                {
+                    id: 207,
+                    title: "Black Mirror",
+                    type: "series",
+                    year: 2011,
+                    rating: 8.8,
+                    duration: "6 Seasons",
+                    genres: ["Drama", "Sci-Fi", "Thriller"],
+                    description: "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations meet its darkest instincts.",
+                    image: "mov/Black%20Mirror.jpg",
+                    director: "Charlie Brooker",
+                    status: "Available"
+                },
+                {
+                    id: 208,
                     title: "Moon Knight",
                     type: "series",
                     year: 2022,
@@ -1394,6 +1615,19 @@
                     description: "Steven Grant discovers he's been granted the powers of an Egyptian moon god.",
                     image: "mov/Moon%20Knight.jpg",
                     director: "Mohamed Diab",
+                    status: "Available"
+                },
+                {
+                    id: 209,
+                    title: "Loki",
+                    type: "series",
+                    year: 2021,
+                    rating: 8.4,
+                    duration: "2 Seasons",
+                    genres: ["Action", "Adventure", "Fantasy"],
+                    description: "The mercurial villain Loki resumes his role as the God of Mischief in a series that takes place after the events of Avengers: Endgame.",
+                    image: "mov/Loki.jpg",
+                    director: "Kate Herron",
                     status: "Available"
                 },
                 {
@@ -1411,41 +1645,41 @@
                 },
                 {
                     id: 211,
-                    title: "Loki",
+                    title: "Squid Game",
                     type: "series",
                     year: 2021,
-                    rating: 8.4,
-                    duration: "2 Seasons",
-                    genres: ["Action", "Adventure", "Fantasy"],
-                    description: "The mercurial villain Loki resumes his role as the God of Mischief in a series that takes place after the events of Avengers: Endgame.",
-                    image: "mov/Loki.jpg",
-                    director: "Kate Herron",
+                    rating: 8.0,
+                    duration: "1 Season",
+                    genres: ["Action", "Drama", "Mystery"],
+                    description: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games for a tempting prize.",
+                    image: "mov/Squid%20Game.jpg",
+                    director: "Hwang Dong-hyuk",
                     status: "Available"
                 },
                 {
                     id: 212,
-                    title: "Mr. Robot",
+                    title: "Dexter",
                     type: "series",
-                    year: 2015,
+                    year: 2006,
                     rating: 8.6,
-                    duration: "4 Seasons",
-                    genres: ["Crime", "Drama", "Thriller"],
-                    description: "Elliot, a brilliant but highly unstable young cyber-security engineer, becomes involved in a hacker organization.",
-                    image: "mov/MR%20Robot.jpg",
-                    director: "Sam Esmail",
+                    duration: "8 Seasons",
+                    genres: ["Crime", "Drama", "Mystery"],
+                    description: "By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer.",
+                    image: "mov/Dexter.jpg",
+                    director: "James Manos Jr.",
                     status: "Available"
                 },
                 {
                     id: 213,
-                    title: "Euphoria",
+                    title: "Prison Break",
                     type: "series",
-                    year: 2019,
-                    rating: 8.4,
-                    duration: "2 Seasons",
-                    genres: ["Drama"],
-                    description: "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
-                    image: "mov/Euphoria.jpg",
-                    director: "Sam Levinson",
+                    year: 2005,
+                    rating: 8.3,
+                    duration: "5 Seasons",
+                    genres: ["Action", "Crime", "Drama", "Thriller"],
+                    description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
+                    image: "mov/prison%20break.jpg",
+                    director: "Paul Scheuring",
                     status: "Available"
                 }
             ]
@@ -1457,6 +1691,7 @@
                 <div class="movie-card" data-id="${item.id}" data-type="${item.type}" data-genres="${item.genres ? item.genres.join(',') : ''}">
                     ${item.status && item.status.includes('👀') ? '<div class="movie-badge">👀</div>' : ''}
                     ${item.status && item.status.includes('New') ? '<div class="movie-badge" style="background: #00b894;">NEW</div>' : ''}
+                    ${item.status && item.status.includes('Classic') ? '<div class="movie-badge" style="background: #6c5ce7;">CLASSIC</div>' : ''}
                     <div class="movie-poster">
                         <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x450/333/666?text=No+Image'">
                         <div class="movie-overlay">
