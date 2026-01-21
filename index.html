@@ -22,6 +22,7 @@
             --netflix-light-gray: #8c8c8c;
             --netflix-white: #ffffff;
             --netflix-card-bg: #181818;
+            --adult-purple: #8b008b;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
@@ -55,6 +56,61 @@
             to { opacity: 1; }
         }
 
+        /* ===== WARNING BANNER ===== */
+        .age-warning {
+            background: linear-gradient(90deg, var(--adult-purple), #4b0082);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1001;
+            display: none;
+        }
+
+        .age-warning.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .warning-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .warning-content i {
+            font-size: 1.2rem;
+        }
+
+        .close-warning {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-warning:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         /* ===== HEADER ===== */
         .header {
             position: fixed;
@@ -73,6 +129,10 @@
         .header.scrolled {
             background-color: var(--netflix-dark);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header.with-warning {
+            top: 60px;
         }
 
         .logo {
@@ -114,6 +174,19 @@
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--netflix-red);
+        }
+
+        .nav-links a.adults-link {
+            color: var(--adult-purple);
+            font-weight: 600;
+        }
+
+        .nav-links a.adults-link:hover {
+            color: #ff00ff;
+        }
+
+        .nav-links a.adults-link::after {
+            background: var(--adult-purple);
         }
 
         .nav-links a::after {
@@ -176,7 +249,6 @@
             background: #ff0000;
         }
 
-        /* إزالة أيقونة البروفايل */
         /* ===== HERO SECTION ===== */
         .hero {
             height: 100vh;
@@ -304,6 +376,10 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        .filter-container.with-warning {
+            top: 140px;
+        }
+
         .filter-nav {
             display: flex;
             gap: 1rem;
@@ -347,6 +423,20 @@
             color: var(--netflix-dark);
         }
 
+        .filter-btn.adults {
+            background: var(--adult-purple);
+            color: white;
+        }
+
+        .filter-btn.adults:hover {
+            background: #9b30a0;
+        }
+
+        .filter-btn.adults.active {
+            background: white;
+            color: var(--adult-purple);
+        }
+
         /* ===== CONTENT SECTIONS ===== */
         .content-section {
             padding: 3rem 4%;
@@ -371,6 +461,10 @@
             color: var(--netflix-red);
         }
 
+        .section-title.adults-title i {
+            color: var(--adult-purple);
+        }
+
         .see-all {
             color: var(--netflix-red);
             text-decoration: none;
@@ -384,6 +478,10 @@
 
         .see-all:hover {
             transform: translateX(5px);
+        }
+
+        .see-all.adults-see-all {
+            color: var(--adult-purple);
         }
 
         /* ===== MOVIE GRID ===== */
@@ -504,6 +602,10 @@
             z-index: 2;
         }
 
+        .movie-badge.adult {
+            background: var(--adult-purple);
+        }
+
         .movie-info-overlay {
             background: rgba(0, 0, 0, 0.85);
             padding: 1.5rem;
@@ -583,6 +685,50 @@
         .action-btn:hover {
             background: var(--netflix-red);
             transform: scale(1.1);
+        }
+
+        /* ===== ADULT CONTENT WARNING ===== */
+        .adult-warning {
+            background: rgba(139, 0, 139, 0.1);
+            border: 2px solid var(--adult-purple);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .adult-warning-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .adult-warning h3 {
+            color: var(--adult-purple);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .adult-warning p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .adult-confirm-btn {
+            background: var(--adult-purple);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .adult-confirm-btn:hover {
+            background: #9b30a0;
+            transform: translateY(-2px);
         }
 
         /* ===== MODAL ===== */
@@ -781,6 +927,14 @@
             padding-left: 5px;
         }
 
+        .footer-links a.adults-link {
+            color: var(--adult-purple);
+        }
+
+        .footer-links a.adults-link:hover {
+            color: #ff00ff;
+        }
+
         .social-links {
             display: flex;
             gap: 1rem;
@@ -838,6 +992,10 @@
                 height: 70px;
             }
             
+            .header.with-warning {
+                top: 60px;
+            }
+            
             .logo {
                 font-size: 1.8rem;
             }
@@ -870,10 +1028,13 @@
                 min-width: 40px;
             }
             
-            /* إزالة أيقونة البروفايل من الاستجابة للهواتف */
             .filter-container {
                 top: 70px;
                 padding: 1rem 1.5rem;
+            }
+            
+            .filter-container.with-warning {
+                top: 130px;
             }
             
             .hero {
@@ -909,6 +1070,10 @@
                 height: 60px;
             }
             
+            .header.with-warning {
+                top: 50px;
+            }
+            
             .logo {
                 font-size: 1.4rem;
             }
@@ -940,6 +1105,10 @@
             .filter-container {
                 top: 60px;
                 padding: 0.8rem 1rem;
+            }
+            
+            .filter-container.with-warning {
+                top: 110px;
             }
             
             .filter-btn {
@@ -984,6 +1153,17 @@
     </style>
 </head>
 <body>
+    <!-- Age Warning Banner -->
+    <div class="age-warning" id="ageWarning">
+        <div class="warning-content">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>This site contains adult content. You must be 18+ to access adult sections.</span>
+            <button class="close-warning" id="closeWarning">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <a href="#" class="logo">
@@ -996,6 +1176,7 @@
                 <li><a href="#movies">Movies</a></li>
                 <li><a href="#series">Series</a></li>
                 <li><a href="#watching">Watching</a></li>
+                <li><a href="#adults" class="adults-link">Adults 18+</a></li>
                 <li><a href="#all-content">All Content</a></li>
             </ul>
             
@@ -1004,7 +1185,6 @@
                 <button class="search-btn" id="searchBtn">
                     <i class="fas fa-search"></i>
                 </button>
-                <!-- تم إزالة أيقونة المستخدم -->
             </div>
         </div>
     </header>
@@ -1014,12 +1194,12 @@
         <div class="hero-content">
             <h1 class="hero-title">My Personal Cinema</h1>
             <div class="hero-meta">
-                <span><i class="fas fa-film"></i> 41 Titles</span>
+                <span><i class="fas fa-film"></i> 51 Titles</span>
                 <span><i class="fas fa-eye"></i> 4 Watching</span>
-                <span class="movie-rating"><i class="fas fa-star"></i> 7.7 Avg Rating</span>
+                <span class="movie-rating"><i class="fas fa-star"></i> 7.6 Avg Rating</span>
             </div>
             <p class="hero-description">
-                Your personal collection of movies and TV series. Browse through 41 carefully 
+                Your personal collection of movies and TV series. Browse through 51 carefully 
                 selected titles with original posters and descriptions. Updated regularly.
             </p>
             <div class="hero-buttons">
@@ -1034,16 +1214,18 @@
     </section>
 
     <!-- Filter Bar -->
-    <div class="filter-container">
+    <div class="filter-container" id="filterContainer">
         <nav class="filter-nav">
             <button class="filter-btn active" data-filter="all">All Content</button>
             <button class="filter-btn" data-filter="watching">Watching Now 👀</button>
             <button class="filter-btn" data-filter="movie">Movies</button>
             <button class="filter-btn" data-filter="series">TV Series</button>
+            <button class="filter-btn adults" data-filter="adult">Adults 18+</button>
             <button class="filter-btn" data-filter="action">Action</button>
             <button class="filter-btn" data-filter="drama">Drama</button>
             <button class="filter-btn" data-filter="crime">Crime</button>
             <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
+            <button class="filter-btn" data-filter="romance">Romance</button>
         </nav>
     </div>
 
@@ -1088,11 +1270,38 @@
             </div>
         </section>
 
+        <!-- Adults 18+ Section -->
+        <section class="content-section" id="adults">
+            <div class="section-header">
+                <h2 class="section-title adults-title">
+                    <i class="fas fa-user-secret"></i> Adults 18+ Content
+                </h2>
+                <span class="see-all adults-see-all">10 Titles</span>
+            </div>
+            
+            <!-- Adult Content Warning -->
+            <div class="adult-warning" id="adultWarning">
+                <div class="adult-warning-content">
+                    <h3><i class="fas fa-exclamation-triangle"></i> ADULT CONTENT WARNING</h3>
+                    <p>This section contains mature content intended for viewers aged 18 and above. The content includes adult themes, explicit scenes, and material that may not be suitable for all audiences.</p>
+                    <p>By clicking "I Confirm I'm 18+" you acknowledge that you are of legal age to view adult content in your location.</p>
+                    <button class="adult-confirm-btn" id="adultConfirmBtn">
+                        <i class="fas fa-check-circle"></i> I Confirm I'm 18+
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Adults Content Grid (Hidden by default) -->
+            <div class="movies-grid" id="adultsGrid" style="display: none;">
+                <!-- Adult content will be loaded by JavaScript -->
+            </div>
+        </section>
+
         <!-- All Content Section -->
         <section class="content-section" id="all-content">
             <div class="section-header">
                 <h2 class="section-title">
-                    <i class="fas fa-th-list"></i> Complete Library (41 Titles)
+                    <i class="fas fa-th-list"></i> Complete Library (51 Titles)
                 </h2>
                 <span class="see-all">A-Z</span>
             </div>
@@ -1153,7 +1362,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>My Cinema</h3>
-                <p>Personal movie library with 41 titles. Updated regularly with new additions.</p>
+                <p>Personal movie library with 51 titles. Updated regularly with new additions.</p>
                 <div class="social-links">
                     <a href="https://github.com/ibrahimmustafacv" target="_blank">
                         <i class="fab fa-github"></i>
@@ -1174,7 +1383,8 @@
                     <li><a href="#" data-filter="drama">Drama</a></li>
                     <li><a href="#" data-filter="crime">Crime</a></li>
                     <li><a href="#" data-filter="sci-fi">Sci-Fi</a></li>
-                    <li><a href="#" data-filter="thriller">Thriller</a></li>
+                    <li><a href="#" data-filter="romance">Romance</a></li>
+                    <li><a href="#" data-filter="adult" class="adults-link">Adults 18+</a></li>
                 </ul>
             </div>
             
@@ -1185,6 +1395,7 @@
                     <li><a href="#movies">Movies</a></li>
                     <li><a href="#series">TV Series</a></li>
                     <li><a href="#watching">Watching</a></li>
+                    <li><a href="#adults" class="adults-link">Adults 18+</a></li>
                     <li><a href="#all-content">All Content</a></li>
                 </ul>
             </div>
@@ -1192,9 +1403,10 @@
             <div class="footer-section">
                 <h3>Statistics</h3>
                 <ul class="footer-links">
-                    <li><span style="color: #b0b0b0;">Total Titles: 41</span></li>
+                    <li><span style="color: #b0b0b0;">Total Titles: 51</span></li>
                     <li><span style="color: #b0b0b0;">Movies: 28</span></li>
                     <li><span style="color: #b0b0b0;">Series: 13</span></li>
+                    <li><span style="color: #b0b0b0;">Adults 18+: 10</span></li>
                     <li><span style="color: #b0b0b0;">Watching: 4</span></li>
                 </ul>
             </div>
@@ -1202,12 +1414,15 @@
         
         <div class="footer-bottom">
             <p>&copy; 2024 My Personal Cinema. All movie posters are property of their respective owners.</p>
-            <p>This is a personal collection for entertainment purposes only.</p>
+            <p>This is a personal collection for entertainment purposes only. Adult content restricted to 18+.</p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        // ===== USER AGE VERIFICATION =====
+        let isAdultVerified = localStorage.getItem('adultVerified') === 'true';
+
         // ===== OPTIMIZE IMAGE URLS =====
         function optimizeImageUrl(url) {
             if (url.includes('github.com') || url.includes('raw.githubusercontent.com')) {
@@ -1817,6 +2032,164 @@
                     director: "Paul Scheuring",
                     status: "Available"
                 }
+            ],
+
+            // Adults 18+ Collection (10 titles) - Sorted by year (newest first)
+            adults: [
+                {
+                    id: 301,
+                    title: "Fair Play",
+                    type: "movie",
+                    year: 2023,
+                    rating: 7.1,
+                    duration: "1h 53m",
+                    genres: ["Drama", "Romance", "Thriller"],
+                    description: "An unexpected promotion at a cutthroat hedge fund pushes a young couple's relationship to the brink, threatening to unravel far more than their recent engagement.",
+                    image: optimizeImageUrl("mov/Fair%20Play.jpg"),
+                    director: "Chloe Domont",
+                    status: "New Release",
+                    isAdult: true
+                },
+                {
+                    id: 302,
+                    title: "Babygirl",
+                    type: "movie",
+                    year: 2023,
+                    rating: 6.8,
+                    duration: "1h 48m",
+                    genres: ["Drama", "Romance"],
+                    description: "A high-powered CEO puts her career and family on the line when she begins a torrid affair with her much younger intern.",
+                    image: optimizeImageUrl("mov/Babygirl.jpg"),
+                    director: "Sofia Coppola",
+                    status: "New Release",
+                    isAdult: true
+                },
+                {
+                    id: 303,
+                    title: "Through My Window",
+                    type: "movie",
+                    year: 2022,
+                    rating: 6.3,
+                    duration: "1h 52m",
+                    genres: ["Drama", "Romance"],
+                    description: "Raquel's longtime crush on her next-door neighbor turns into something more when he starts developing feelings for her, despite his family's objections.",
+                    image: optimizeImageUrl("mov/Through%20My%20Window.jpg"),
+                    director: "Marçal Forés",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 304,
+                    title: "After Series",
+                    type: "movie",
+                    year: 2021,
+                    rating: 6.8,
+                    duration: "1h 45m",
+                    genres: ["Drama", "Romance"],
+                    description: "A young woman falls for a guy with a dark secret and the two embark on a rocky relationship. Based on the novel by Anna Todd.",
+                    image: optimizeImageUrl("mov/After%20Series.jpg"),
+                    director: "Jenny Gage",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 305,
+                    title: "Love",
+                    type: "movie",
+                    year: 2015,
+                    rating: 6.0,
+                    duration: "2h 15m",
+                    genres: ["Drama", "Romance"],
+                    description: "Murphy is an American living in Paris who enters a highly sexually and emotionally charged relationship with Electra.",
+                    image: optimizeImageUrl("mov/Love.jpg"),
+                    director: "Gaspar Noé",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 306,
+                    title: "Fifty Shades of Grey",
+                    type: "movie",
+                    year: 2015,
+                    rating: 4.2,
+                    duration: "2h 5m",
+                    genres: ["Drama", "Romance"],
+                    description: "Literature student Anastasia Steele's life changes forever when she meets handsome, yet tormented, billionaire Christian Grey.",
+                    image: optimizeImageUrl("mov/Fifty%20Shades%20of%20Grey.jpg"),
+                    director: "Sam Taylor-Johnson",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 307,
+                    title: "Shame",
+                    type: "movie",
+                    year: 2011,
+                    rating: 7.2,
+                    duration: "1h 41m",
+                    genres: ["Drama"],
+                    description: "A man's carefully cultivated private life is disrupted when his sister arrives for an indefinite stay.",
+                    image: optimizeImageUrl("mov/SHAME.jpg"),
+                    director: "Steve McQueen",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 308,
+                    title: "Don Jon",
+                    type: "movie",
+                    year: 2013,
+                    rating: 6.5,
+                    duration: "1h 30m",
+                    genres: ["Comedy", "Drama", "Romance"],
+                    description: "A New Jersey guy dedicated to his family, friends, and church develops unrealistic expectations from watching porn and works to find happiness and intimacy with his potential true love.",
+                    image: optimizeImageUrl("mov/DON%20JON.jpg"),
+                    director: "Joseph Gordon-Levitt",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 309,
+                    title: "Pretty Thing",
+                    type: "movie",
+                    year: 2021,
+                    rating: 6.7,
+                    duration: "1h 33m",
+                    genres: ["Drama", "Romance"],
+                    description: "Two young women, both in need of an escape from their daily lives, decide to help each other out in a most unusual way.",
+                    image: optimizeImageUrl("mov/Pretty%20Thing.jpg"),
+                    director: "Mick Jackson",
+                    status: "Available",
+                    isAdult: true
+                },
+                {
+                    id: 310,
+                    title: "Unfaithful",
+                    type: "movie",
+                    year: 2002,
+                    rating: 6.7,
+                    duration: "2h 4m",
+                    genres: ["Drama", "Thriller"],
+                    description: "A married woman's random encounter with a handsome stranger turns into a full-blown affair, threatening her seemingly perfect life.",
+                    image: optimizeImageUrl("mov/Unfaithful.jpg"),
+                    director: "Adrian Lyne",
+                    status: "Classic",
+                    isAdult: true
+                },
+                {
+                    id: 311,
+                    title: "365 Days",
+                    type: "movie",
+                    year: 2020,
+                    rating: 3.3,
+                    duration: "1h 54m",
+                    genres: ["Drama", "Romance", "Thriller"],
+                    description: "A woman falls victim to a dominant mafia boss who imprisons her and gives her one year to fall in love with him.",
+                    image: optimizeImageUrl("mov/365%20days.jpg"),
+                    director: "Barbara Białowąs",
+                    status: "Available",
+                    isAdult: true
+                }
             ]
         };
 
@@ -1887,12 +2260,17 @@
 
         // ===== تعديل دالة createMovieCard =====
         function createMovieCard(item) {
+            const isAdult = item.isAdult || false;
+            const adultClass = isAdult ? ' adult' : '';
+            const adultBadge = isAdult ? '<div class="movie-badge adult">18+</div>' : '';
+            
             return `
-                <div class="movie-card" data-id="${item.id}" data-type="${item.type}" data-genres="${item.genres ? item.genres.join(',') : ''}">
+                <div class="movie-card" data-id="${item.id}" data-type="${item.type}" data-genres="${item.genres ? item.genres.join(',') : ''}" data-adult="${isAdult}">
                     ${item.status && item.status.includes('👀') ? '<div class="movie-badge">👀</div>' : ''}
                     ${item.status && item.status.includes('New') ? '<div class="movie-badge" style="background: #00b894;">NEW</div>' : ''}
                     ${item.status && item.status.includes('Classic') ? '<div class="movie-badge" style="background: #6c5ce7;">CLASSIC</div>' : ''}
-                    <div class="movie-poster">
+                    ${adultBadge}
+                    <div class="movie-poster${adultClass}">
                         <!-- استخدم data-src بدلاً من src -->
                         <img data-src="${item.image}" 
                              alt="${item.title}"
@@ -1929,6 +2307,7 @@
             document.getElementById('watchingGrid').innerHTML = '';
             document.getElementById('moviesGrid').innerHTML = '';
             document.getElementById('seriesGrid').innerHTML = '';
+            document.getElementById('adultsGrid').innerHTML = '';
             document.getElementById('allContentGrid').innerHTML = '';
             
             // Load watching content
@@ -1946,8 +2325,21 @@
                 document.getElementById('seriesGrid').innerHTML += createMovieCard(item);
             });
 
+            // Load adult content if verified
+            if (isAdultVerified) {
+                movieLibrary.adults.forEach(item => {
+                    document.getElementById('adultsGrid').innerHTML += createMovieCard(item);
+                });
+            }
+
             // Load all content
-            const allContent = [...movieLibrary.watching, ...movieLibrary.movies, ...movieLibrary.series];
+            const allContent = [
+                ...movieLibrary.watching, 
+                ...movieLibrary.movies, 
+                ...movieLibrary.series,
+                ...(isAdultVerified ? movieLibrary.adults : [])
+            ];
+            
             allContent.forEach(item => {
                 document.getElementById('allContentGrid').innerHTML += createMovieCard(item);
             });
@@ -1958,10 +2350,47 @@
                     if (!e.target.closest('.action-btn')) {
                         const id = parseInt(this.getAttribute('data-id'));
                         const type = this.getAttribute('data-type');
+                        const isAdult = this.getAttribute('data-adult') === 'true';
+                        
+                        if (isAdult && !isAdultVerified) {
+                            showAdultWarning();
+                            return;
+                        }
+                        
                         openModal(id, type);
                     }
                 });
             });
+        }
+
+        function showAdultWarning() {
+            document.getElementById('ageWarning').classList.add('show');
+            document.getElementById('header').classList.add('with-warning');
+            document.getElementById('filterContainer').classList.add('with-warning');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function verifyAdultAccess() {
+            isAdultVerified = true;
+            localStorage.setItem('adultVerified', 'true');
+            
+            // Hide warning
+            document.getElementById('ageWarning').classList.remove('show');
+            document.getElementById('adultWarning').style.display = 'none';
+            
+            // Show adult content
+            document.getElementById('adultsGrid').style.display = 'grid';
+            
+            // Reload content to include adult movies
+            loadContent();
+            
+            // Reinitialize image loader
+            setTimeout(() => {
+                initImageLoader();
+            }, 100);
+            
+            // Scroll to adults section
+            scrollToSection('adults');
         }
 
         function openModal(id, type) {
@@ -1981,6 +2410,11 @@
                 item = movieLibrary.series.find(i => i.id === id);
             }
             
+            // Check adults
+            if (!item && isAdultVerified) {
+                item = movieLibrary.adults.find(i => i.id === id);
+            }
+            
             if (!item) return;
             
             // Update modal content
@@ -1997,7 +2431,12 @@
             
             // Update button actions
             document.getElementById('modalWatchBtn').onclick = function() {
-                alert(`Now playing: ${item.title}`);
+                if (item.isAdult && !isAdultVerified) {
+                    showAdultWarning();
+                    closeModal();
+                } else {
+                    alert(`Now playing: ${item.title}`);
+                }
             };
             
             document.getElementById('modalListBtn').onclick = function() {
@@ -2021,6 +2460,7 @@
                 const type = card.getAttribute('data-type');
                 const genres = card.getAttribute('data-genres').toLowerCase();
                 const isWatching = card.querySelector('.movie-badge')?.textContent === '👀';
+                const isAdult = card.getAttribute('data-adult') === 'true';
                 
                 let shouldShow = false;
                 
@@ -2036,6 +2476,13 @@
                         break;
                     case 'series':
                         shouldShow = type === 'series';
+                        break;
+                    case 'adult':
+                        if (!isAdultVerified) {
+                            showAdultWarning();
+                            return;
+                        }
+                        shouldShow = isAdult;
                         break;
                     default:
                         shouldShow = genres.includes(filter.toLowerCase());
@@ -2083,6 +2530,12 @@
             // Load all content
             loadContent();
             
+            // Check if adult content should be shown
+            if (isAdultVerified) {
+                document.getElementById('adultWarning').style.display = 'none';
+                document.getElementById('adultsGrid').style.display = 'grid';
+            }
+            
             // Header scroll effect
             window.addEventListener('scroll', function() {
                 const header = document.getElementById('header');
@@ -2104,7 +2557,14 @@
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    filterContent(this.getAttribute('data-filter'));
+                    
+                    const filter = this.getAttribute('data-filter');
+                    if (filter === 'adult' && !isAdultVerified) {
+                        showAdultWarning();
+                        scrollToSection('adults');
+                    } else {
+                        filterContent(filter);
+                    }
                 });
             });
             
@@ -2113,11 +2573,28 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'adult' && !isAdultVerified) {
+                        showAdultWarning();
+                        scrollToSection('adults');
+                        return;
+                    }
+                    
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     document.querySelector(`.filter-btn[data-filter="${filter}"]`)?.classList.add('active');
                     filterContent(filter);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
+            });
+            
+            // Adult confirmation button
+            document.getElementById('adultConfirmBtn').addEventListener('click', verifyAdultAccess);
+            
+            // Close warning button
+            document.getElementById('closeWarning').addEventListener('click', function() {
+                document.getElementById('ageWarning').classList.remove('show');
+                document.getElementById('header').classList.remove('with-warning');
+                document.getElementById('filterContainer').classList.remove('with-warning');
             });
             
             // Search functionality
