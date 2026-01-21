@@ -1194,12 +1194,12 @@
         <div class="hero-content">
             <h1 class="hero-title">My Personal Cinema</h1>
             <div class="hero-meta">
-                <span><i class="fas fa-film"></i> 51 Titles</span>
+                <span><i class="fas fa-film"></i> 60 Titles</span>
                 <span><i class="fas fa-eye"></i> 4 Watching</span>
                 <span class="movie-rating"><i class="fas fa-star"></i> 7.6 Avg Rating</span>
             </div>
             <p class="hero-description">
-                Your personal collection of movies and TV series. Browse through 51 carefully 
+                Your personal collection of movies and TV series. Browse through 60 carefully 
                 selected titles with original posters and descriptions. Updated regularly.
             </p>
             <div class="hero-buttons">
@@ -1250,7 +1250,7 @@
                 <h2 class="section-title">
                     <i class="fas fa-film"></i> Movies Collection
                 </h2>
-                <span class="see-all">28 Titles</span>
+                <span class="see-all">37 Titles</span>
             </div>
             <div class="movies-grid" id="moviesGrid">
                 <!-- Content will be loaded by JavaScript -->
@@ -1301,7 +1301,7 @@
         <section class="content-section" id="all-content">
             <div class="section-header">
                 <h2 class="section-title">
-                    <i class="fas fa-th-list"></i> Complete Library (51 Titles)
+                    <i class="fas fa-th-list"></i> Complete Library (60 Titles)
                 </h2>
                 <span class="see-all">A-Z</span>
             </div>
@@ -1362,7 +1362,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>My Cinema</h3>
-                <p>Personal movie library with 51 titles. Updated regularly with new additions.</p>
+                <p>Personal movie library with 60 titles. Updated regularly with new additions.</p>
                 <div class="social-links">
                     <a href="https://github.com/ibrahimmustafacv" target="_blank">
                         <i class="fab fa-github"></i>
@@ -1403,8 +1403,8 @@
             <div class="footer-section">
                 <h3>Statistics</h3>
                 <ul class="footer-links">
-                    <li><span style="color: #b0b0b0;">Total Titles: 51</span></li>
-                    <li><span style="color: #b0b0b0;">Movies: 28</span></li>
+                    <li><span style="color: #b0b0b0;">Total Titles: 60</span></li>
+                    <li><span style="color: #b0b0b0;">Movies: 37</span></li>
                     <li><span style="color: #b0b0b0;">Series: 13</span></li>
                     <li><span style="color: #b0b0b0;">Adults 18+: 10</span></li>
                     <li><span style="color: #b0b0b0;">Watching: 4</span></li>
@@ -1493,7 +1493,7 @@
                 }
             ],
 
-            // Movies Collection (28 titles) - Sorted by year (newest first)
+            // Movies Collection (37 titles) - Sorted by year (newest first)
             movies: [
                 {
                     id: 101,
@@ -1858,8 +1858,126 @@
                     image: optimizeImageUrl("mov/A%20space%20Odyssey.jpg"),
                     director: "Stanley Kubrick",
                     status: "Classic"
+                },
+                // Newly added movies start from here (sorted by year descending)
+                {
+                    id: 129,
+                    title: "Extraction",
+                    type: "movie",
+                    year: 2020,
+                    rating: 6.7,
+                    duration: "1h 57m",
+                    genres: ["Action", "Thriller"],
+                    description: "A black-market mercenary who has nothing to lose is hired to rescue the kidnapped son of an imprisoned international crime lord.",
+                    image: optimizeImageUrl("mov/Extraction.jpg"),
+                    director: "Sam Hargrave",
+                    status: "Available"
+                },
+                {
+                    id: 130,
+                    title: "Baby Driver",
+                    type: "movie",
+                    year: 2017,
+                    rating: 7.6,
+                    duration: "1h 53m",
+                    genres: ["Action", "Crime", "Drama"],
+                    description: "After being coerced into working for a crime boss, a young getaway driver finds himself taking part in a heist doomed to fail.",
+                    image: optimizeImageUrl("mov/Baby%20Driver.jpg"),
+                    director: "Edgar Wright",
+                    status: "Available"
+                },
+                {
+                    id: 131,
+                    title: "The Mountain Between Us",
+                    type: "movie",
+                    year: 2017,
+                    rating: 6.4,
+                    duration: "1h 52m",
+                    genres: ["Adventure", "Drama", "Romance"],
+                    description: "Two strangers stranded on a remote mountain must survive the harsh elements and work together to return to civilization.",
+                    image: optimizeImageUrl("mov/The%20Mountain%20Between%20Us.jpg"),
+                    director: "Hany Abu-Assad",
+                    status: "Available"
+                },
+                {
+                    id: 132,
+                    title: "The Martian",
+                    type: "movie",
+                    year: 2015,
+                    rating: 8.0,
+                    duration: "2h 24m",
+                    genres: ["Adventure", "Drama", "Sci-Fi"],
+                    description: "An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.",
+                    image: optimizeImageUrl("mov/The%20Martian.jpg"),
+                    director: "Ridley Scott",
+                    status: "Available"
+                },
+                {
+                    id: 133,
+                    title: "The Maze Runner",
+                    type: "movie",
+                    year: 2014,
+                    rating: 6.8,
+                    duration: "1h 53m",
+                    genres: ["Action", "Mystery", "Sci-Fi"],
+                    description: "Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow runners for a shot at escape.",
+                    image: optimizeImageUrl("mov/The%20Maze%20Runner.jpg"),
+                    director: "Wes Ball",
+                    status: "Available"
+                },
+                {
+                    id: 134,
+                    title: "The Boy",
+                    type: "movie",
+                    year: 2016,
+                    rating: 6.0,
+                    duration: "1h 37m",
+                    genres: ["Horror", "Mystery", "Thriller"],
+                    description: "An American nanny is shocked that her new English family's boy is actually a life-sized doll. After she violates a list of strict rules, disturbing events make her believe that the doll is really alive.",
+                    image: optimizeImageUrl("mov/The%20Boy.jpg"),
+                    director: "William Brent Bell",
+                    status: "Available"
+                },
+                {
+                    id: 135,
+                    title: "The Hangover",
+                    type: "movie",
+                    year: 2009,
+                    rating: 7.7,
+                    duration: "1h 40m",
+                    genres: ["Comedy"],
+                    description: "Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.",
+                    image: optimizeImageUrl("mov/The%20Hangover.jpg"),
+                    director: "Todd Phillips",
+                    status: "Available"
+                },
+                {
+                    id: 136,
+                    title: "The Ring",
+                    type: "movie",
+                    year: 2002,
+                    rating: 7.1,
+                    duration: "1h 55m",
+                    genres: ["Horror", "Mystery"],
+                    description: "A journalist must investigate a mysterious videotape which seems to cause the death of anyone one week to the day after they view it.",
+                    image: optimizeImageUrl("mov/The%20Ring.jpg"),
+                    director: "Gore Verbinski",
+                    status: "Available"
+                },
+                {
+                    id: 137,
+                    title: "Titanic",
+                    type: "movie",
+                    year: 1997,
+                    rating: 7.9,
+                    duration: "3h 14m",
+                    genres: ["Drama", "Romance"],
+                    description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+                    image: optimizeImageUrl("mov/Titanic.jpg"),
+                    director: "James Cameron",
+                    status: "Classic"
                 }
-            ],
+            ].sort((a, b) => b.year - a.year), // Sort by year descending
 
             // TV Series Collection (13 titles) - Sorted by year (newest first)
             series: [
