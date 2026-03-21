@@ -1194,12 +1194,12 @@
         <div class="hero-content">
             <h1 class="hero-title">My Personal Cinema</h1>
             <div class="hero-meta">
-                <span><i class="fas fa-film"></i> 60 Titles</span>
+                <span><i class="fas fa-film"></i> 72 Titles</span>
                 <span><i class="fas fa-eye"></i> 4 Watching</span>
                 <span class="movie-rating"><i class="fas fa-star"></i> 7.6 Avg Rating</span>
             </div>
             <p class="hero-description">
-                Your personal collection of movies and TV series. Browse through 60 carefully 
+                Your personal collection of movies and TV series. Browse through 72 carefully 
                 selected titles with original posters and descriptions. Updated regularly.
             </p>
             <div class="hero-buttons">
@@ -1250,7 +1250,7 @@
                 <h2 class="section-title">
                     <i class="fas fa-film"></i> Movies Collection
                 </h2>
-                <span class="see-all">37 Titles</span>
+                <span class="see-all">44 Titles</span>
             </div>
             <div class="movies-grid" id="moviesGrid">
                 <!-- Content will be loaded by JavaScript -->
@@ -1263,7 +1263,7 @@
                 <h2 class="section-title">
                     <i class="fas fa-tv"></i> TV Series Collection
                 </h2>
-                <span class="see-all">13 Titles</span>
+                <span class="see-all">14 Titles</span>
             </div>
             <div class="movies-grid" id="seriesGrid">
                 <!-- Content will be loaded by JavaScript -->
@@ -1301,7 +1301,7 @@
         <section class="content-section" id="all-content">
             <div class="section-header">
                 <h2 class="section-title">
-                    <i class="fas fa-th-list"></i> Complete Library (60 Titles)
+                    <i class="fas fa-th-list"></i> Complete Library (72 Titles)
                 </h2>
                 <span class="see-all">A-Z</span>
             </div>
@@ -1362,7 +1362,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>My Cinema</h3>
-                <p>Personal movie library with 60 titles. Updated regularly with new additions.</p>
+                <p>Personal movie library with 72 titles. Updated regularly with new additions.</p>
                 <div class="social-links">
                     <a href="https://github.com/ibrahimmustafacv" target="_blank">
                         <i class="fab fa-github"></i>
@@ -1403,9 +1403,9 @@
             <div class="footer-section">
                 <h3>Statistics</h3>
                 <ul class="footer-links">
-                    <li><span style="color: #b0b0b0;">Total Titles: 60</span></li>
-                    <li><span style="color: #b0b0b0;">Movies: 37</span></li>
-                    <li><span style="color: #b0b0b0;">Series: 13</span></li>
+                    <li><span style="color: #b0b0b0;">Total Titles: 72</span></li>
+                    <li><span style="color: #b0b0b0;">Movies: 44</span></li>
+                    <li><span style="color: #b0b0b0;">Series: 14</span></li>
                     <li><span style="color: #b0b0b0;">Adults 18+: 10</span></li>
                     <li><span style="color: #b0b0b0;">Watching: 4</span></li>
                 </ul>
@@ -1493,7 +1493,7 @@
                 }
             ],
 
-            // Movies Collection (37 titles) - Sorted by year (newest first)
+            // Movies Collection (44 titles) - Sorted by year (newest first)
             movies: [
                 {
                     id: 101,
@@ -1859,7 +1859,6 @@
                     director: "Stanley Kubrick",
                     status: "Classic"
                 },
-                // Newly added movies start from here (sorted by year descending)
                 {
                     id: 129,
                     title: "Extraction",
@@ -1976,10 +1975,102 @@
                     image: optimizeImageUrl("mov/Titanic.jpg"),
                     director: "James Cameron",
                     status: "Classic"
+                },
+                // **** NEW MOVIES ADDED BELOW (sorted by year) ****
+                {
+                    id: 138,
+                    title: "Get Out",
+                    type: "movie",
+                    year: 2017,
+                    rating: 7.8,
+                    duration: "1h 44m",
+                    genres: ["Horror", "Mystery", "Thriller"],
+                    description: "A young African-American visits his white girlfriend's family estate, where he uncovers a disturbing secret.",
+                    image: optimizeImageUrl("mov/Get%20Out.jpg"),
+                    director: "Jordan Peele",
+                    status: "Available"
+                },
+                {
+                    id: 139,
+                    title: "The Equalizer",
+                    type: "movie",
+                    year: 2014,
+                    rating: 7.2,
+                    duration: "2h 12m",
+                    genres: ["Action", "Crime", "Thriller"],
+                    description: "A retired black ops operative believes he has left his past behind, but is drawn back into the game to protect a young girl.",
+                    image: optimizeImageUrl("mov/THE%20EQUALIZER.jpg"),
+                    director: "Antoine Fuqua",
+                    status: "Available"
+                },
+                {
+                    id: 140,
+                    title: "The Mortal Instruments: City of Bones",
+                    type: "movie",
+                    year: 2013,
+                    rating: 5.8,
+                    duration: "2h 10m",
+                    genres: ["Action", "Adventure", "Fantasy"],
+                    description: "When her mother disappears, Clary Fray learns that she descends from a line of warriors who protect our world from demons.",
+                    image: optimizeImageUrl("mov/THE%20MORTAL%20INSTRUMENTS.jpg"),
+                    director: "Harald Zwart",
+                    status: "Available"
+                },
+                {
+                    id: 141,
+                    title: "Safe",
+                    type: "movie",
+                    year: 2012,
+                    rating: 6.5,
+                    duration: "1h 34m",
+                    genres: ["Action", "Crime", "Thriller"],
+                    description: "A former cage fighter protects a young Chinese girl from the Triads and corrupt cops in New York City.",
+                    image: optimizeImageUrl("mov/Safe.jpg"),
+                    director: "Boaz Yakin",
+                    status: "Available"
+                },
+                {
+                    id: 142,
+                    title: "Mechanic: Resurrection",
+                    type: "movie",
+                    year: 2016,
+                    rating: 5.7,
+                    duration: "1h 38m",
+                    genres: ["Action", "Thriller"],
+                    description: "Arthur Bishop returns as the Mechanic in this sequel, forced to perform an impossible hit job to save the woman he loves.",
+                    image: optimizeImageUrl("mov/Mechanic%20Resurrection.jpg"),
+                    director: "Dennis Gansel",
+                    status: "Available"
+                },
+                {
+                    id: 143,
+                    title: "Mr. & Mrs. Smith",
+                    type: "movie",
+                    year: 2005,
+                    rating: 6.5,
+                    duration: "2h 0m",
+                    genres: ["Action", "Comedy", "Romance"],
+                    description: "A bored married couple discovers they are both assassins hired to kill each other.",
+                    image: optimizeImageUrl("mov/Mr.%20%26Mrs.%20Smith.jpg"),
+                    director: "Doug Liman",
+                    status: "Available"
+                },
+                {
+                    id: 144,
+                    title: "London Has Fallen",
+                    type: "movie",
+                    year: 2016,
+                    rating: 5.9,
+                    duration: "1h 39m",
+                    genres: ["Action", "Thriller"],
+                    description: "Secret Service Agent Mike Banning must save the President after a terrorist attack in London.",
+                    image: optimizeImageUrl("mov/London%20Has%20Fallen.jpg"),
+                    director: "Babak Najafi",
+                    status: "Available"
                 }
             ].sort((a, b) => b.year - a.year), // Sort by year descending
 
-            // TV Series Collection (13 titles) - Sorted by year (newest first)
+            // TV Series Collection (14 titles) - Sorted by year (newest first)
             series: [
                 {
                     id: 201,
@@ -2149,8 +2240,22 @@
                     image: optimizeImageUrl("mov/prison%20break.jpg"),
                     director: "Paul Scheuring",
                     status: "Available"
+                },
+                // **** NEW SERIES ADDED ****
+                {
+                    id: 214,
+                    title: "Hannibal",
+                    type: "series",
+                    year: 2013,
+                    rating: 8.5,
+                    duration: "3 Seasons",
+                    genres: ["Crime", "Drama", "Horror"],
+                    description: "Explores the early relationship between the renowned psychiatrist Hannibal Lecter and a young FBI criminal profiler who is haunted by his ability to empathize with serial killers.",
+                    image: optimizeImageUrl("mov/Hannibal.jpg"),
+                    director: "Bryan Fuller",
+                    status: "Available"
                 }
-            ],
+            ].sort((a, b) => b.year - a.year), // Sort by year descending
 
             // Adults 18+ Collection (10 titles) - Sorted by year (newest first)
             adults: [
