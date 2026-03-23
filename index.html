@@ -1194,12 +1194,12 @@
         <div class="hero-content">
             <h1 class="hero-title">My Personal Cinema</h1>
             <div class="hero-meta">
-                <span><i class="fas fa-film"></i> 72 Titles</span>
-                <span><i class="fas fa-eye"></i> 4 Watching</span>
+                <span><i class="fas fa-film"></i> 83 Titles</span>
+                <span><i class="fas fa-eye"></i> 1 Watching</span>
                 <span class="movie-rating"><i class="fas fa-star"></i> 7.6 Avg Rating</span>
             </div>
             <p class="hero-description">
-                Your personal collection of movies and TV series. Browse through 72 carefully 
+                Your personal collection of movies and TV series. Browse through 83 carefully 
                 selected titles with original posters and descriptions. Updated regularly.
             </p>
             <div class="hero-buttons">
@@ -1237,7 +1237,7 @@
                 <h2 class="section-title">
                     <i class="fas fa-eye"></i> Currently Watching 👀
                 </h2>
-                <span class="see-all">4 Titles</span>
+                <span class="see-all">1 Title</span>
             </div>
             <div class="movies-grid" id="watchingGrid">
                 <!-- Content will be loaded by JavaScript -->
@@ -1250,7 +1250,7 @@
                 <h2 class="section-title">
                     <i class="fas fa-film"></i> Movies Collection
                 </h2>
-                <span class="see-all">44 Titles</span>
+                <span class="see-all">57 Titles</span>
             </div>
             <div class="movies-grid" id="moviesGrid">
                 <!-- Content will be loaded by JavaScript -->
@@ -1276,7 +1276,7 @@
                 <h2 class="section-title adults-title">
                     <i class="fas fa-user-secret"></i> Adults 18+ Content
                 </h2>
-                <span class="see-all adults-see-all">10 Titles</span>
+                <span class="see-all adults-see-all">11 Titles</span>
             </div>
             
             <!-- Adult Content Warning -->
@@ -1301,7 +1301,7 @@
         <section class="content-section" id="all-content">
             <div class="section-header">
                 <h2 class="section-title">
-                    <i class="fas fa-th-list"></i> Complete Library (72 Titles)
+                    <i class="fas fa-th-list"></i> Complete Library (83 Titles)
                 </h2>
                 <span class="see-all">A-Z</span>
             </div>
@@ -1362,7 +1362,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>My Cinema</h3>
-                <p>Personal movie library with 72 titles. Updated regularly with new additions.</p>
+                <p>Personal movie library with 83 titles. Updated regularly with new additions.</p>
                 <div class="social-links">
                     <a href="https://github.com/ibrahimmustafacv" target="_blank">
                         <i class="fab fa-github"></i>
@@ -1403,11 +1403,11 @@
             <div class="footer-section">
                 <h3>Statistics</h3>
                 <ul class="footer-links">
-                    <li><span style="color: #b0b0b0;">Total Titles: 72</span></li>
-                    <li><span style="color: #b0b0b0;">Movies: 44</span></li>
+                    <li><span style="color: #b0b0b0;">Total Titles: 83</span></li>
+                    <li><span style="color: #b0b0b0;">Movies: 57</span></li>
                     <li><span style="color: #b0b0b0;">Series: 14</span></li>
-                    <li><span style="color: #b0b0b0;">Adults 18+: 10</span></li>
-                    <li><span style="color: #b0b0b0;">Watching: 4</span></li>
+                    <li><span style="color: #b0b0b0;">Adults 18+: 11</span></li>
+                    <li><span style="color: #b0b0b0;">Watching: 1</span></li>
                 </ul>
             </div>
         </div>
@@ -1437,64 +1437,26 @@
 
         // ===== COMPLETE MOVIE LIBRARY WITH LOCAL IMAGES =====
         const movieLibrary = {
-            // Currently Watching (4 titles) - Sorted by year (newest first)
+            // Currently Watching (1 title) - Only Hannibal
             watching: [
                 {
-                    id: 1,
-                    title: "Black Mirror",
+                    id: 214,
+                    title: "Hannibal",
                     type: "series",
-                    year: 2011,
-                    rating: 8.8,
-                    duration: "6 Seasons",
-                    genres: ["Drama", "Sci-Fi", "Thriller"],
-                    description: "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations meet its darkest instincts.",
-                    image: optimizeImageUrl("mov/Black%20Mirror.jpg"),
-                    director: "Charlie Brooker",
-                    status: "Watching 👀 Season 6"
-                },
-                {
-                    id: 2,
-                    title: "Daredevil",
-                    type: "series",
-                    year: 2015,
-                    rating: 8.6,
+                    year: 2013,
+                    rating: 8.5,
                     duration: "3 Seasons",
-                    genres: ["Action", "Crime", "Drama"],
-                    description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.",
-                    image: optimizeImageUrl("mov/daredevil.jpg"),
-                    director: "Drew Goddard",
-                    status: "Watching 👀 Season 3"
-                },
-                {
-                    id: 3,
-                    title: "Prison Break",
-                    type: "series",
-                    year: 2005,
-                    rating: 8.3,
-                    duration: "5 Seasons",
-                    genres: ["Action", "Crime", "Drama", "Thriller"],
-                    description: "Michael Scofield engineers an elaborate plan to break his brother Lincoln Burrows out of prison after he's wrongfully convicted of murder.",
-                    image: optimizeImageUrl("mov/prison%20break.jpg"),
-                    director: "Paul Scheuring",
-                    status: "Watching 👀 Season 3"
-                },
-                {
-                    id: 4,
-                    title: "Inception",
-                    type: "movie",
-                    year: 2010,
-                    rating: 8.8,
-                    duration: "2h 28m",
-                    genres: ["Action", "Sci-Fi", "Thriller"],
-                    description: "A thief who steals corporate secrets through dream-sharing technology is given the task of planting an idea into the mind of a C.E.O.",
-                    image: optimizeImageUrl("mov/inception.jpg"),
-                    director: "Christopher Nolan",
+                    genres: ["Crime", "Drama", "Horror"],
+                    description: "Explores the early relationship between the renowned psychiatrist Hannibal Lecter and a young FBI criminal profiler who is haunted by his ability to empathize with serial killers.",
+                    image: optimizeImageUrl("mov/Hannibal.jpg"),
+                    director: "Bryan Fuller",
                     status: "Watching 👀"
                 }
             ],
 
-            // Movies Collection (44 titles) - Sorted by year (newest first)
+            // Movies Collection (57 titles) - Sorted by year (newest first)
             movies: [
+                // Previous movies (starting from id 101 to 137, then new ones)
                 {
                     id: 101,
                     title: "Oppenheimer",
@@ -1976,7 +1938,7 @@
                     director: "James Cameron",
                     status: "Classic"
                 },
-                // **** NEW MOVIES ADDED BELOW (sorted by year) ****
+                // New movies (sorted by year descending)
                 {
                     id: 138,
                     title: "Get Out",
@@ -2067,8 +2029,178 @@
                     image: optimizeImageUrl("mov/London%20Has%20Fallen.jpg"),
                     director: "Babak Najafi",
                     status: "Available"
+                },
+                // New requested movies (with years assigned)
+                {
+                    id: 145,
+                    title: "The Night Clerk",
+                    type: "movie",
+                    year: 2020,
+                    rating: 5.9,
+                    duration: "1h 30m",
+                    genres: ["Crime", "Drama", "Thriller"],
+                    description: "A hotel clerk with Asperger's syndrome becomes the prime suspect in a murder investigation.",
+                    image: optimizeImageUrl("mov/The%20Night%20Clerk.jpg"),
+                    director: "Michael Cristofer",
+                    status: "Available"
+                },
+                {
+                    id: 146,
+                    title: "dark web",
+                    type: "movie",
+                    year: 2020,
+                    rating: 5.2,
+                    duration: "1h 38m",
+                    genres: ["Horror", "Thriller"],
+                    description: "A group of friends find a mysterious laptop that leads them into the dark web, where they encounter a dangerous game.",
+                    image: optimizeImageUrl("mov/dark%20web.jpg"),
+                    director: "Various",
+                    status: "Available"
+                },
+                {
+                    id: 147,
+                    title: "The Shallows",
+                    type: "movie",
+                    year: 2016,
+                    rating: 6.3,
+                    duration: "1h 26m",
+                    genres: ["Action", "Drama", "Horror"],
+                    description: "A surfer is attacked by a great white shark and must fight for survival stranded on a rock.",
+                    image: optimizeImageUrl("mov/The%20Shallows.jpg"),
+                    director: "Jaume Collet-Serra",
+                    status: "Available"
+                },
+                {
+                    id: 148,
+                    title: "No Escape",
+                    type: "movie",
+                    year: 2015,
+                    rating: 6.7,
+                    duration: "1h 43m",
+                    genres: ["Action", "Thriller"],
+                    description: "An American family in Southeast Asia finds themselves in the middle of a violent political uprising.",
+                    image: optimizeImageUrl("mov/No%20Escape.jpg"),
+                    director: "John Erick Dowdle",
+                    status: "Available"
+                },
+                {
+                    id: 149,
+                    title: "Divergent",
+                    type: "movie",
+                    year: 2014,
+                    rating: 6.6,
+                    duration: "2h 19m",
+                    genres: ["Action", "Adventure", "Sci-Fi"],
+                    description: "In a world divided by factions based on virtues, Tris learns she is Divergent and won't fit in.",
+                    image: optimizeImageUrl("mov/Divergent.jpg"),
+                    director: "Neil Burger",
+                    status: "Available"
+                },
+                {
+                    id: 150,
+                    title: "Love, Rosie",
+                    type: "movie",
+                    year: 2014,
+                    rating: 7.1,
+                    duration: "1h 42m",
+                    genres: ["Comedy", "Romance"],
+                    description: "Rosie and Alex have been best friends since childhood, but their relationship is constantly tested.",
+                    image: optimizeImageUrl("mov/Love,%20Rosie.jpg"),
+                    director: "Christian Ditter",
+                    status: "Available"
+                },
+                {
+                    id: 151,
+                    title: "Warm Bodies",
+                    type: "movie",
+                    year: 2013,
+                    rating: 6.8,
+                    duration: "1h 38m",
+                    genres: ["Comedy", "Horror", "Romance"],
+                    description: "After a zombie becomes involved with the girlfriend of one of his victims, their romance sets in motion a chain reaction that transforms the entire undead world.",
+                    image: optimizeImageUrl("mov/Warm%20Bodies.jpg"),
+                    director: "Jonathan Levine",
+                    status: "Available"
+                },
+                {
+                    id: 152,
+                    title: "The Impossible",
+                    type: "movie",
+                    year: 2012,
+                    rating: 7.5,
+                    duration: "1h 54m",
+                    genres: ["Drama", "History", "Thriller"],
+                    description: "The story of a tourist family in Thailand caught in the destruction and chaotic aftermath of the 2004 Indian Ocean tsunami.",
+                    image: optimizeImageUrl("mov/The%20Impossible.jpg"),
+                    director: "J.A. Bayona",
+                    status: "Available"
+                },
+                {
+                    id: 153,
+                    title: "The Change-Up",
+                    type: "movie",
+                    year: 2011,
+                    rating: 6.3,
+                    duration: "1h 52m",
+                    genres: ["Comedy", "Fantasy"],
+                    description: "Two friends switch bodies and discover the unexpected consequences.",
+                    image: optimizeImageUrl("mov/The%20Change-Up.jpg"),
+                    director: "David Dobkin",
+                    status: "Available"
+                },
+                {
+                    id: 154,
+                    title: "Twilight",
+                    type: "movie",
+                    year: 2008,
+                    rating: 5.3,
+                    duration: "2h 2m",
+                    genres: ["Drama", "Fantasy", "Romance"],
+                    description: "Bella Swan moves to a small town and falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
+                    image: optimizeImageUrl("mov/twilight.jpg"),
+                    director: "Catherine Hardwicke",
+                    status: "Available"
+                },
+                {
+                    id: 155,
+                    title: "MUMMY",
+                    type: "movie",
+                    year: 2017,
+                    rating: 5.4,
+                    duration: "1h 50m",
+                    genres: ["Action", "Adventure", "Fantasy"],
+                    description: "An ancient princess is awakened from her crypt beneath the desert, bringing with her malevolence grown over millennia.",
+                    image: optimizeImageUrl("mov/MUMMY.jpg"),
+                    director: "Alex Kurtzman",
+                    status: "Available"
+                },
+                {
+                    id: 156,
+                    title: "SPEED",
+                    type: "movie",
+                    year: 1994,
+                    rating: 7.3,
+                    duration: "1h 56m",
+                    genres: ["Action", "Thriller"],
+                    description: "A young police officer must prevent a bomb exploding aboard a city bus by keeping its speed above 50 mph.",
+                    image: optimizeImageUrl("mov/SPEED.jpg"),
+                    director: "Jan de Bont",
+                    status: "Classic"
+                },
+                {
+                    id: 157,
+                    title: "The Shawshank Redemption",
+                    type: "movie",
+                    year: 1994,
+                    rating: 9.3,
+                    duration: "2h 22m",
+                    genres: ["Drama"],
+                    description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+                    image: optimizeImageUrl("mov/The%20Shawshank%20Redemption.jpg"),
+                    director: "Frank Darabont",
+                    status: "Classic"
                 }
-            ].sort((a, b) => b.year - a.year), // Sort by year descending
+            ].sort((a, b) => b.year - a.year),
 
             // TV Series Collection (14 titles) - Sorted by year (newest first)
             series: [
@@ -2241,7 +2373,6 @@
                     director: "Paul Scheuring",
                     status: "Available"
                 },
-                // **** NEW SERIES ADDED ****
                 {
                     id: 214,
                     title: "Hannibal",
@@ -2255,9 +2386,9 @@
                     director: "Bryan Fuller",
                     status: "Available"
                 }
-            ].sort((a, b) => b.year - a.year), // Sort by year descending
+            ].sort((a, b) => b.year - a.year),
 
-            // Adults 18+ Collection (10 titles) - Sorted by year (newest first)
+            // Adults 18+ Collection (11 titles) - Sorted by year (newest first)
             adults: [
                 {
                     id: 301,
@@ -2412,6 +2543,20 @@
                     director: "Barbara Białowąs",
                     status: "Available",
                     isAdult: true
+                },
+                {
+                    id: 312,
+                    title: "No Strings Attached",
+                    type: "movie",
+                    year: 2011,
+                    rating: 6.2,
+                    duration: "1h 48m",
+                    genres: ["Comedy", "Romance"],
+                    description: "A guy and girl try to keep their relationship strictly physical, but it's not long before they learn that they want something more.",
+                    image: optimizeImageUrl("mov/No%20Strings%20Attached.jpg"),
+                    director: "Ivan Reitman",
+                    status: "Available",
+                    isAdult: true
                 }
             ]
         };
@@ -2533,7 +2678,7 @@
             document.getElementById('adultsGrid').innerHTML = '';
             document.getElementById('allContentGrid').innerHTML = '';
             
-            // Load watching content
+            // Load watching content (only Hannibal)
             movieLibrary.watching.forEach(item => {
                 document.getElementById('watchingGrid').innerHTML += createMovieCard(item);
             });
@@ -2555,9 +2700,8 @@
                 });
             }
 
-            // Load all content
+            // Load all content (without duplicates: exclude watching items to avoid double Hannibal in all)
             const allContent = [
-                ...movieLibrary.watching, 
                 ...movieLibrary.movies, 
                 ...movieLibrary.series,
                 ...(isAdultVerified ? movieLibrary.adults : [])
